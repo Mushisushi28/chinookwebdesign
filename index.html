@@ -25,13 +25,15 @@
             --light-slate: #a8b2d1;
             --lightest-slate: #ccd6f6;
             --white: #e6f1ff;
-            --glass: rgba(255,255,255,0.03);
-            --glass-hover: rgba(255,255,255,0.06);
-            --glass-border: rgba(100,255,218,0.08);
-            --glass-border-hover: rgba(100,255,218,0.2);
-            --radius: 16px;
-            --radius-sm: 10px;
-            --radius-xs: 6px;
+            --glass: rgba(255,255,255,0.06);
+            --glass-hover: rgba(255,255,255,0.1);
+            --glass-border: rgba(255,255,255,0.12);
+            --glass-border-hover: rgba(255,255,255,0.22);
+            --glass-specular: rgba(255,255,255,0.15);
+            --glass-refract: rgba(100,255,218,0.04);
+            --radius: 20px;
+            --radius-sm: 14px;
+            --radius-xs: 8px;
         }
 
         html { scroll-behavior: smooth; }
@@ -67,26 +69,26 @@
         .aurora-blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.4;
+            filter: blur(100px);
+            opacity: 0.5;
             animation: auroraFloat 20s ease-in-out infinite alternate;
         }
         .aurora-blob:nth-child(1) {
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(100,255,218,0.15), transparent 70%);
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(100,255,218,0.2), rgba(100,255,218,0.05) 50%, transparent 70%);
             top: -10%; left: -5%;
             animation-delay: 0s;
         }
         .aurora-blob:nth-child(2) {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(0,180,216,0.1), transparent 70%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0,180,216,0.15), rgba(0,180,216,0.04) 50%, transparent 70%);
             top: 30%; right: -10%;
             animation-delay: -5s;
             animation-duration: 25s;
         }
         .aurora-blob:nth-child(3) {
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(123,97,255,0.08), transparent 70%);
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(123,97,255,0.12), rgba(123,97,255,0.03) 50%, transparent 70%);
             bottom: 10%; left: 20%;
             animation-delay: -10s;
             animation-duration: 30s;
@@ -110,25 +112,110 @@
         }
 
         /* ═══════════════════════════════════════
+           LIQUID GLASS SYSTEM
+           ═══════════════════════════════════════ */
+        .liquid-glass {
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.08) 0%,
+                rgba(255,255,255,0.03) 40%,
+                rgba(100,255,218,0.03) 60%,
+                rgba(255,255,255,0.06) 100%
+            );
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.12),
+                inset 0 -1px 0 0 rgba(255,255,255,0.04),
+                0 8px 32px rgba(0,0,0,0.2),
+                0 0 0 0.5px rgba(255,255,255,0.06);
+            position: relative;
+        }
+        .liquid-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(
+                105deg,
+                rgba(255,255,255,0.08) 0%,
+                transparent 30%,
+                transparent 70%,
+                rgba(255,255,255,0.04) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Glass sheen — animated light sweep */
+        .glass-sheen::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(
+                105deg,
+                transparent 40%,
+                rgba(255,255,255,0.05) 45%,
+                rgba(255,255,255,0.1) 50%,
+                rgba(255,255,255,0.05) 55%,
+                transparent 60%
+            );
+            transform: rotate(0deg);
+            animation: sheenSweep 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 2;
+            border-radius: inherit;
+        }
+        @keyframes sheenSweep {
+            0%, 100% { transform: translateX(-30%) rotate(15deg); opacity: 0; }
+            15% { opacity: 1; }
+            50% { transform: translateX(30%) rotate(15deg); opacity: 0.6; }
+            85% { opacity: 0; }
+        }
+
+        /* Edge glow — chromatic rim light */
+        .glass-glow {
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.15),
+                inset 0 -1px 0 0 rgba(255,255,255,0.05),
+                0 0 15px rgba(100,255,218,0.06),
+                0 0 40px rgba(100,255,218,0.03),
+                0 8px 32px rgba(0,0,0,0.2),
+                0 0 0 0.5px rgba(255,255,255,0.08);
+        }
+
+        /* ═══════════════════════════════════════
            NAVIGATION
            ═══════════════════════════════════════ */
         nav {
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
             padding: 1.2rem 2rem;
-            background: rgba(10,25,47,0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid transparent;
+            background: linear-gradient(
+                180deg,
+                rgba(10,25,47,0.5) 0%,
+                rgba(10,25,47,0.3) 100%
+            );
+            backdrop-filter: blur(30px) saturate(1.5);
+            -webkit-backdrop-filter: blur(30px) saturate(1.5);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: inset 0 -1px 0 0 rgba(255,255,255,0.04), 0 4px 30px rgba(0,0,0,0.15);
         }
         nav.scrolled {
             padding: 0.8rem 2rem;
-            background: rgba(10,25,47,0.92);
-            border-bottom-color: var(--glass-border);
+            background: linear-gradient(
+                180deg,
+                rgba(10,25,47,0.85) 0%,
+                rgba(10,25,47,0.75) 100%
+            );
+            border-bottom-color: rgba(255,255,255,0.1);
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.06), inset 0 -1px 0 0 rgba(255,255,255,0.03), 0 8px 40px rgba(0,0,0,0.3);
         }
 
         .logo {
@@ -183,18 +270,23 @@
 
         .nav-cta {
             padding: 0.55rem 1.4rem !important;
-            border: 1px solid var(--cyan) !important;
+            border: 1px solid rgba(100,255,218,0.4) !important;
             border-radius: var(--radius-xs);
             color: var(--cyan) !important;
             font-size: 0.85rem !important;
             font-weight: 600 !important;
             transition: all 0.3s ease !important;
+            background: linear-gradient(135deg, rgba(100,255,218,0.08), rgba(100,255,218,0.02)) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08) !important;
         }
         .nav-cta::after { display: none !important; }
         .nav-cta:hover {
-            background: rgba(100,255,218,0.1) !important;
+            background: linear-gradient(135deg, rgba(100,255,218,0.15), rgba(100,255,218,0.05)) !important;
             transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(100,255,218,0.15);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 4px 20px rgba(100,255,218,0.2) !important;
+            border-color: rgba(100,255,218,0.6) !important;
         }
 
         /* Hamburger */
@@ -258,21 +350,27 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--cyan), var(--blue));
             color: var(--navy);
+            box-shadow: 0 4px 15px rgba(100,255,218,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
         }
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(100,255,218,0.25);
+            box-shadow: 0 8px 30px rgba(100,255,218,0.3), 0 0 60px rgba(100,255,218,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
             color: var(--navy);
         }
         .btn-outline {
-            background: transparent;
+            background: linear-gradient(135deg, rgba(100,255,218,0.06), rgba(100,255,218,0.02));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             color: var(--cyan);
-            border: 1px solid var(--cyan);
+            border: 1px solid rgba(100,255,218,0.3);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
         }
         .btn-outline:hover {
-            background: rgba(100,255,218,0.08);
+            background: linear-gradient(135deg, rgba(100,255,218,0.12), rgba(100,255,218,0.04));
             transform: translateY(-2px);
             color: var(--cyan);
+            border-color: rgba(100,255,218,0.5);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 20px rgba(100,255,218,0.1);
         }
 
         /* ═══════════════════════════════════════
@@ -292,11 +390,14 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.4rem 1rem 0.4rem 0.5rem;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 50px;
             font-size: 0.82rem;
             color: var(--light-slate);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 2px 8px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
         }
         .hero-badge-dot {
@@ -345,7 +446,7 @@
             gap: 3rem;
             margin-top: 4rem;
             padding-top: 2.5rem;
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
         .hero-stat h3 {
             font-size: 1.8rem;
@@ -368,43 +469,96 @@
         }
 
         .service-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.07) 0%,
+                rgba(255,255,255,0.02) 40%,
+                rgba(100,255,218,0.02) 60%,
+                rgba(255,255,255,0.05) 100%
+            );
+            backdrop-filter: blur(28px) saturate(1.4);
+            -webkit-backdrop-filter: blur(28px) saturate(1.4);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: var(--radius);
             padding: 2.5rem 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.1),
+                inset 0 -1px 0 0 rgba(255,255,255,0.03),
+                0 8px 32px rgba(0,0,0,0.2),
+                0 0 0 0.5px rgba(255,255,255,0.06);
         }
         .service-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--cyan), var(--blue), transparent);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), rgba(100,255,218,0.3), rgba(255,255,255,0.2), transparent);
             opacity: 0;
-            transition: opacity 0.4s;
+            transition: opacity 0.5s;
+        }
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(
+                105deg,
+                transparent 42%,
+                rgba(255,255,255,0.04) 46%,
+                rgba(255,255,255,0.08) 50%,
+                rgba(255,255,255,0.04) 54%,
+                transparent 58%
+            );
+            transform: translateX(-60%) rotate(15deg);
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+        .service-card:hover::after {
+            transform: translateX(60%) rotate(15deg);
         }
         .service-card:hover {
-            border-color: var(--glass-border-hover);
-            transform: translateY(-4px);
-            background: var(--glass-hover);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-8px);
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.1) 0%,
+                rgba(255,255,255,0.04) 40%,
+                rgba(100,255,218,0.04) 60%,
+                rgba(255,255,255,0.08) 100%
+            );
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.15),
+                inset 0 -1px 0 0 rgba(255,255,255,0.05),
+                0 20px 60px rgba(0,0,0,0.35),
+                0 0 60px rgba(100,255,218,0.06),
+                0 0 0 0.5px rgba(255,255,255,0.1);
         }
         .service-card:hover::before { opacity: 1; }
         .service-card.featured {
-            border-color: var(--glass-border-hover);
-            background: rgba(100,255,218,0.02);
+            border-color: rgba(100,255,218,0.18);
+            background: linear-gradient(
+                135deg,
+                rgba(100,255,218,0.06) 0%,
+                rgba(255,255,255,0.03) 50%,
+                rgba(100,255,218,0.04) 100%
+            );
         }
         .service-card.featured::before { opacity: 1; }
 
         .service-icon {
             width: 52px; height: 52px;
-            background: var(--cyan-glow);
+            background: linear-gradient(135deg, rgba(100,255,218,0.12), rgba(0,180,216,0.08));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(100,255,218,0.15);
             border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
             margin-bottom: 1.5rem;
             color: var(--cyan);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 12px rgba(0,0,0,0.15);
         }
         .service-icon svg { width: 24px; height: 24px; stroke: var(--cyan); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -453,6 +607,8 @@
             border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            box-shadow: 0 2px 12px rgba(100,255,218,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            z-index: 3;
         }
 
         /* ═══════════════════════════════════════
@@ -480,8 +636,10 @@
         }
         .process-number {
             width: 72px; height: 72px;
-            background: var(--glass);
-            border: 2px solid var(--glass-border);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border: 1.5px solid rgba(255,255,255,0.12);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 1.5rem;
@@ -491,12 +649,20 @@
             color: var(--cyan);
             position: relative;
             z-index: 1;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.12),
+                inset 0 -1px 0 rgba(255,255,255,0.04),
+                0 4px 16px rgba(0,0,0,0.15);
         }
         .process-step:hover .process-number {
-            border-color: var(--cyan);
-            background: var(--cyan-glow);
-            box-shadow: 0 0 30px rgba(100,255,218,0.15);
+            border-color: rgba(100,255,218,0.3);
+            background: linear-gradient(135deg, rgba(100,255,218,0.12), rgba(100,255,218,0.04));
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.18),
+                0 0 30px rgba(100,255,218,0.12),
+                0 0 60px rgba(100,255,218,0.04),
+                0 8px 24px rgba(0,0,0,0.2);
         }
         .process-step h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
         .process-step p { font-size: 0.88rem; line-height: 1.7; color: var(--slate); }
@@ -510,16 +676,31 @@
             gap: 1.5rem;
         }
         .portfolio-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
+            background: linear-gradient(
+                160deg,
+                rgba(255,255,255,0.07) 0%,
+                rgba(255,255,255,0.02) 50%,
+                rgba(255,255,255,0.05) 100%
+            );
+            backdrop-filter: blur(24px) saturate(1.3);
+            -webkit-backdrop-filter: blur(24px) saturate(1.3);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: var(--radius);
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.1),
+                0 8px 32px rgba(0,0,0,0.2),
+                0 0 0 0.5px rgba(255,255,255,0.05);
         }
         .portfolio-card:hover {
-            border-color: var(--glass-border-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-6px);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.15),
+                0 20px 50px rgba(0,0,0,0.35),
+                0 0 40px rgba(100,255,218,0.04),
+                0 0 0 0.5px rgba(255,255,255,0.08);
         }
         .portfolio-preview {
             height: 220px;
@@ -581,11 +762,15 @@
         }
         .portfolio-tag {
             padding: 0.2rem 0.7rem;
-            background: var(--cyan-glow);
+            background: linear-gradient(135deg, rgba(100,255,218,0.1), rgba(100,255,218,0.04));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(100,255,218,0.12);
             border-radius: 50px;
             font-size: 0.75rem;
             color: var(--cyan);
             font-weight: 500;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
         }
 
         /* ═══════════════════════════════════════
@@ -600,14 +785,26 @@
         .about-image {
             width: 100%;
             aspect-ratio: 1;
-            background: linear-gradient(135deg, var(--navy-light), var(--navy-lighter));
+            background: linear-gradient(
+                135deg,
+                rgba(255,255,255,0.05) 0%,
+                rgba(17,34,64,0.8) 30%,
+                rgba(26,47,78,0.8) 70%,
+                rgba(255,255,255,0.04) 100%
+            );
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: var(--radius);
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(255,255,255,0.1);
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.1),
+                inset 0 -1px 0 rgba(255,255,255,0.03),
+                0 8px 32px rgba(0,0,0,0.2);
         }
         .about-avatar {
             width: 120px; height: 120px;
@@ -653,14 +850,29 @@
             gap: 1.5rem;
         }
         .faq-item {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.06) 0%,
+                rgba(255,255,255,0.02) 50%,
+                rgba(255,255,255,0.04) 100%
+            );
+            backdrop-filter: blur(24px) saturate(1.3);
+            -webkit-backdrop-filter: blur(24px) saturate(1.3);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: var(--radius);
             padding: 2rem;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.08),
+                0 4px 20px rgba(0,0,0,0.15),
+                0 0 0 0.5px rgba(255,255,255,0.04);
         }
         .faq-item:hover {
-            border-color: var(--glass-border-hover);
+            border-color: rgba(255,255,255,0.18);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.12),
+                0 8px 30px rgba(0,0,0,0.2),
+                0 0 0 0.5px rgba(255,255,255,0.08);
         }
         .faq-item h3 {
             font-size: 1.05rem;
@@ -684,9 +896,10 @@
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px; height: 300px;
-            background: radial-gradient(ellipse, rgba(100,255,218,0.06), transparent 70%);
+            width: 800px; height: 400px;
+            background: radial-gradient(ellipse, rgba(100,255,218,0.08), rgba(0,180,216,0.03) 50%, transparent 70%);
             pointer-events: none;
+            filter: blur(40px);
         }
         .cta-section h2 {
             font-size: clamp(2rem, 5vw, 3.2rem);
@@ -723,7 +936,7 @@
            FOOTER
            ═══════════════════════════════════════ */
         footer {
-            border-top: 1px solid var(--glass-border);
+            border-top: 1px solid rgba(255,255,255,0.06);
             padding: 3rem 0;
         }
         .footer-inner {
@@ -740,15 +953,19 @@
         .footer-social { display: flex; gap: 1rem; }
         .footer-social a {
             width: 36px; height: 36px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
             transition: all 0.3s;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
         }
         .footer-social a:hover {
-            border-color: var(--cyan);
-            background: var(--cyan-glow);
+            border-color: rgba(100,255,218,0.3);
+            background: linear-gradient(135deg, rgba(100,255,218,0.1), rgba(100,255,218,0.04));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 0 15px rgba(100,255,218,0.08);
         }
         .footer-social a svg { width: 16px; height: 16px; stroke: var(--slate); fill: none; stroke-width: 2; }
         .footer-social a:hover svg { stroke: var(--cyan); }
@@ -833,6 +1050,17 @@
 </head>
 <body>
 
+    <!-- SVG Filters for glass refraction -->
+    <svg style="position:absolute;width:0;height:0;" aria-hidden="true">
+        <defs>
+            <filter id="glass-refract">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur"/>
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1.02 0 0 0  0 0 1.05 0 0  0 0 0 1 0" result="tinted"/>
+                <feComposite in="tinted" in2="SourceGraphic" operator="over"/>
+            </filter>
+        </defs>
+    </svg>
+
     <!-- Aurora background -->
     <div class="aurora">
         <div class="aurora-blob"></div>
@@ -841,14 +1069,34 @@
     </div>
     <div class="noise"></div>
 
+    <!-- Mouse-tracking glass highlight -->
+    <div id="glassOrb" style="
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(100,255,218,0.04), transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(60px);
+        transform: translate(-50%, -50%);
+        transition: left 0.8s ease-out, top 0.8s ease-out;
+        opacity: 0.6;
+    "></div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo">
             <div class="logo-mark">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#64ffda" stroke-width="2.5">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.5 0 2.92-.33 4.2-.93"/>
-                    <path d="M22 12c0-5.52-4.48-10-10-10"/>
-                    <circle cx="12" cy="12" r="3"/>
+                <svg viewBox="0 0 80 70" fill="none">
+                    <!-- Chinook C with wind arc -->
+                    <path d="M38 10 C55 5, 68 15, 65 32 C62 49, 48 58, 35 53" stroke="url(#logoGrad)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+                    <!-- Mountain accent -->
+                    <path d="M15 55 L28 35 L41 55" stroke="#64ffda" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                    <!-- Wind lines -->
+                    <path d="M52 22 Q68 19, 73 24" stroke="#64ffda" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+                    <path d="M55 34 Q70 31, 76 36" stroke="#00b4d8" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.35"/>
+                    <defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#64ffda"/><stop offset="100%" stop-color="#00b4d8"/></linearGradient></defs>
                 </svg>
             </div>
             Chinook
@@ -1038,11 +1286,21 @@
                     <div class="portfolio-preview">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
-                            <div class="browser-content">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
+                            <div class="mini-site" style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);">
+                                <div style="padding: 10px 14px;">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                        <div style="display:flex; align-items:center; gap:4px;"><div style="width:6px;height:6px;background:#3b82f6;border-radius:2px;"></div><div style="width:40px;height:4px;background:rgba(255,255,255,0.3);border-radius:2px;"></div></div>
+                                        <div style="display:flex; gap:6px;"><div style="width:20px;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;"></div><div style="width:20px;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;"></div><div style="width:30px;height:10px;background:#3b82f6;border-radius:3px;"></div></div>
+                                    </div>
+                                    <div style="width:65%;height:10px;background:rgba(255,255,255,0.25);border-radius:3px;margin-bottom:6px;"></div>
+                                    <div style="width:80%;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:3px;"></div>
+                                    <div style="width:60%;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:10px;"></div>
+                                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+                                        <div style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:5px;padding:8px 4px;text-align:center;"><div style="width:12px;height:12px;background:rgba(59,130,246,0.3);border-radius:3px;margin:0 auto 4px;"></div><div style="width:70%;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;margin:0 auto;"></div></div>
+                                        <div style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:5px;padding:8px 4px;text-align:center;"><div style="width:12px;height:12px;background:rgba(59,130,246,0.3);border-radius:3px;margin:0 auto 4px;"></div><div style="width:70%;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;margin:0 auto;"></div></div>
+                                        <div style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:5px;padding:8px 4px;text-align:center;"><div style="width:12px;height:12px;background:rgba(59,130,246,0.3);border-radius:3px;margin:0 auto 4px;"></div><div style="width:70%;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;margin:0 auto;"></div></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1061,11 +1319,20 @@
                     <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
-                            <div class="browser-content">
-                                <div class="line" style="background: rgba(123,97,255,0.25);"></div>
-                                <div class="line" style="background: rgba(123,97,255,0.15);"></div>
-                                <div class="line" style="background: rgba(123,97,255,0.15);"></div>
-                                <div class="line" style="background: rgba(123,97,255,0.1);"></div>
+                            <div class="mini-site" style="background: linear-gradient(180deg, #1c1917 0%, #292524 100%);">
+                                <div style="padding: 10px 14px;">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                        <div style="display:flex; align-items:center; gap:4px;"><div style="width:6px;height:6px;background:#f59e0b;border-radius:2px;"></div><div style="width:36px;height:4px;background:rgba(255,255,255,0.3);border-radius:2px;"></div></div>
+                                        <div style="display:flex; gap:6px;"><div style="width:18px;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;"></div><div style="width:18px;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;"></div></div>
+                                    </div>
+                                    <div style="width:50%;height:12px;background:rgba(245,158,11,0.25);border-radius:3px;margin-bottom:4px;"></div>
+                                    <div style="width:70%;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:8px;"></div>
+                                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
+                                        <div style="height:40px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);border-radius:5px;"></div>
+                                        <div style="height:40px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);border-radius:5px;"></div>
+                                    </div>
+                                    <div style="width:45%;height:10px;background:#f59e0b;border-radius:4px;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1084,11 +1351,19 @@
                     <div class="portfolio-preview" style="background: linear-gradient(135deg, #0d1b2a, #1b2d45);">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
-                            <div class="browser-content">
-                                <div class="line" style="background: rgba(0,180,216,0.25);"></div>
-                                <div class="line" style="background: rgba(0,180,216,0.15);"></div>
-                                <div class="line" style="background: rgba(0,180,216,0.15);"></div>
-                                <div class="line" style="background: rgba(0,180,216,0.1);"></div>
+                            <div class="mini-site" style="background: linear-gradient(180deg, #0c0a09 0%, #1c1917 100%);">
+                                <div style="padding: 10px 14px;">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                        <div style="display:flex; align-items:center; gap:4px;"><div style="width:6px;height:6px;background:#ef4444;border-radius:50%;"></div><div style="width:32px;height:4px;background:rgba(255,255,255,0.25);border-radius:2px;"></div></div>
+                                        <div style="width:28px;height:9px;background:#ef4444;border-radius:3px;"></div>
+                                    </div>
+                                    <div style="height:35px;background:linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));border-radius:5px;margin-bottom:8px;display:flex;align-items:center;padding:0 8px;"><div style="width:55%;height:5px;background:rgba(255,255,255,0.2);border-radius:2px;"></div></div>
+                                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;">
+                                        <div style="text-align:center;padding:5px;"><div style="width:100%;height:3px;background:rgba(239,68,68,0.3);border-radius:2px;margin-bottom:3px;"></div><div style="width:60%;height:2px;background:rgba(255,255,255,0.1);border-radius:2px;margin:0 auto;"></div></div>
+                                        <div style="text-align:center;padding:5px;"><div style="width:100%;height:3px;background:rgba(239,68,68,0.3);border-radius:2px;margin-bottom:3px;"></div><div style="width:60%;height:2px;background:rgba(255,255,255,0.1);border-radius:2px;margin:0 auto;"></div></div>
+                                        <div style="text-align:center;padding:5px;"><div style="width:100%;height:3px;background:rgba(239,68,68,0.3);border-radius:2px;margin-bottom:3px;"></div><div style="width:60%;height:2px;background:rgba(255,255,255,0.1);border-radius:2px;margin:0 auto;"></div></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1106,11 +1381,20 @@
                     <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a0f2e, #2d1b4e);">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
-                            <div class="browser-content">
-                                <div class="line" style="background: rgba(255,107,107,0.25);"></div>
-                                <div class="line" style="background: rgba(255,107,107,0.15);"></div>
-                                <div class="line" style="background: rgba(255,107,107,0.15);"></div>
-                                <div class="line" style="background: rgba(255,107,107,0.1);"></div>
+                            <div class="mini-site" style="background: linear-gradient(180deg, #fafaf9 0%, #f5f5f4 100%);">
+                                <div style="padding: 10px 14px;">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                                        <div style="display:flex; align-items:center; gap:4px;"><div style="width:6px;height:6px;background:#16a34a;border-radius:2px;"></div><div style="width:36px;height:4px;background:rgba(0,0,0,0.2);border-radius:2px;"></div></div>
+                                        <div style="display:flex; gap:6px;"><div style="width:18px;height:3px;background:rgba(0,0,0,0.1);border-radius:2px;"></div><div style="width:18px;height:3px;background:rgba(0,0,0,0.1);border-radius:2px;"></div></div>
+                                    </div>
+                                    <div style="width:60%;height:8px;background:rgba(0,0,0,0.15);border-radius:3px;margin-bottom:5px;"></div>
+                                    <div style="width:45%;height:4px;background:rgba(0,0,0,0.07);border-radius:2px;margin-bottom:10px;"></div>
+                                    <div style="display:flex;gap:6px;margin-bottom:8px;">
+                                        <div style="flex:1;height:30px;background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.15);border-radius:4px;"></div>
+                                        <div style="flex:1;height:30px;background:rgba(22,163,74,0.1);border:1px solid rgba(22,163,74,0.15);border-radius:4px;"></div>
+                                    </div>
+                                    <div style="width:35%;height:10px;background:#16a34a;border-radius:4px;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1239,10 +1523,9 @@
             <div class="footer-inner">
                 <a href="#" class="logo" style="font-size: 1.1rem;">
                     <div class="logo-mark" style="width: 30px; height: 30px;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#64ffda" stroke-width="2.5" style="width: 14px; height: 14px;">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.5 0 2.92-.33 4.2-.93"/>
-                            <path d="M22 12c0-5.52-4.48-10-10-10"/>
-                            <circle cx="12" cy="12" r="3"/>
+                        <svg viewBox="0 0 80 70" fill="none" style="width: 14px; height: 14px;">
+                            <path d="M38 10 C55 5, 68 15, 65 32 C62 49, 48 58, 35 53" stroke="#64ffda" stroke-width="6" fill="none" stroke-linecap="round"/>
+                            <path d="M15 55 L28 35 L41 55" stroke="#64ffda" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
                         </svg>
                     </div>
                     Chinook
@@ -1351,6 +1634,38 @@
             });
         }, { threshold: 0.5 });
         counterElements.forEach(el => counterObserver.observe(el));
+
+        // ═══════════════════════════════════════
+        // MOUSE-TRACKING GLASS ORB
+        // ═══════════════════════════════════════
+        const glassOrb = document.getElementById('glassOrb');
+        document.addEventListener('mousemove', (e) => {
+            glassOrb.style.left = e.clientX + 'px';
+            glassOrb.style.top = e.clientY + 'px';
+        }, { passive: true });
+
+        // ═══════════════════════════════════════
+        // GLASS CARD TILT EFFECT
+        // ═══════════════════════════════════════
+        document.querySelectorAll('.service-card, .portfolio-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                const tiltX = (y - 0.5) * 6;
+                const tiltY = (x - 0.5) * -6;
+                card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-4px)`;
+                // Move specular highlight
+                card.style.backgroundImage = `
+                    radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                    linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 40%, rgba(100,255,218,0.02) 60%, rgba(255,255,255,0.05) 100%)
+                `;
+            }, { passive: true });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.backgroundImage = '';
+            });
+        });
     </script>
 </body>
 </html>
