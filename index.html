@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinook Web Design | Modern Websites for North America Businesses</title>
-    <meta name="description" content="We build fast, modern websites that bring in customers for local businesses across North America. Free demo — see your site before you pay.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a192f'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%2364ffda' font-family='sans-serif' font-weight='700' font-size='20'%3EC%3C/text%3E%3C/svg%3E">
+    <title>Chinook Web Design | Modern Websites for Local Businesses</title>
+    <meta name="description" content="Chinook Web Design builds modern, mobile-ready websites for local businesses. Free custom demo, 48-hour turnaround, no upfront cost.">
+    <meta property="og:title" content="Chinook Web Design | Modern Websites for Local Businesses">
+    <meta property="og:description" content="Chinook Web Design builds modern, mobile-ready websites for local businesses. Free custom demo, 48-hour turnaround, no upfront cost.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chinookwebdesign.com">
+    <link rel="canonical" href="https://chinookwebdesign.com">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -246,10 +251,11 @@
         .logo-mark svg {
             position: relative;
             z-index: 1;
-            width: 18px; height: 18px;
+            width: 22px; height: 22px;
         }
 
         .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .mobile-only-cta { display: none; }
         .nav-links a {
             color: var(--light-slate);
             font-size: 0.88rem;
@@ -972,23 +978,23 @@
 
         /* ═══════════════════════════════════════
            SCROLL ANIMATIONS
+           IntersectionObserver adds .visible on scroll.
            ═══════════════════════════════════════ */
         .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* Hero animations */
-        .hero-animate { opacity: 0; transform: translateY(25px); }
+        /* Hero animations — pure CSS staggered entrance */
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-animate { opacity: 1; transform: translateY(0); }
         .hero-animate.visible { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
         .hero-animate:nth-child(1) { transition-delay: 0.1s; }
         .hero-animate:nth-child(2) { transition-delay: 0.25s; }
@@ -1013,6 +1019,7 @@
             nav { padding: 1rem; }
             .nav-links { display: none; }
             .hamburger { display: flex; }
+            .mobile-only-cta { display: inline-flex !important; }
             .nav-links.open {
                 display: flex;
                 flex-direction: column;
@@ -1046,7 +1053,56 @@
             .cta-buttons { flex-direction: column; align-items: center; }
             .cta-buttons .btn { width: 100%; max-width: 300px; }
         }
+        /* ═══════════════════════════════════════
+           REDUCED MOTION
+           ═══════════════════════════════════════ */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .hero-animate {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
     </style>
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chinook Web Design | Modern Websites for Local Businesses">
+    <meta name="twitter:description" content="Chinook Web Design builds modern, mobile-ready websites for local businesses. Free custom demo, 48-hour turnaround, no upfront cost.">
+    <meta name="twitter:image" content="https://chinookwebdesign.com/og-image.jpg">
+    <meta property="og:image" content="https://chinookwebdesign.com/og-image.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Chinook Web Design",
+      "description": "Modern websites for local businesses in Edmonton, Alberta. Free custom demo, 48-hour turnaround, no upfront cost.",
+      "url": "https://chinookwebdesign.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Edmonton",
+        "addressRegion": "AB",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 53.5461,
+        "longitude": -113.4938
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "priceRange": "$$",
+      "sameAs": ["https://chinookwebdesign.com"]
+    }
+    </script>
 </head>
 <body>
 
@@ -1088,15 +1144,15 @@
     <nav id="navbar">
         <a href="#" class="logo">
             <div class="logo-mark">
-                <svg viewBox="0 0 80 70" fill="none">
-                    <!-- Chinook C with wind arc -->
-                    <path d="M38 10 C55 5, 68 15, 65 32 C62 49, 48 58, 35 53" stroke="url(#logoGrad)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-                    <!-- Mountain accent -->
-                    <path d="M15 55 L28 35 L41 55" stroke="#64ffda" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-                    <!-- Wind lines -->
-                    <path d="M52 22 Q68 19, 73 24" stroke="#64ffda" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
-                    <path d="M55 34 Q70 31, 76 36" stroke="#00b4d8" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.35"/>
+                <svg viewBox="0 0 60 60" fill="none">
                     <defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#64ffda"/><stop offset="100%" stop-color="#00b4d8"/></linearGradient></defs>
+                    <!-- Stylized C -->
+                    <path d="M39 14 C50 11, 54 18, 52 30 C50 42, 42 50, 32 47" stroke="url(#logoGrad)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                    <!-- Mountain peak -->
+                    <path d="M18 44 L27 28 L36 44" stroke="#64ffda" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+                    <!-- Wind arcs -->
+                    <path d="M42 22 Q52 19, 56 23" stroke="#64ffda" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.45"/>
+                    <path d="M44 32 Q53 30, 57 33" stroke="#00b4d8" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.3"/>
                 </svg>
             </div>
             Chinook
@@ -1108,6 +1164,7 @@
             <a href="#faq">FAQ</a>
             <a href="#contact" class="nav-cta">Free Demo</a>
         </div>
+        <a href="#contact" class="nav-cta mobile-only-cta">Free Demo</a>
         <div class="hamburger" id="hamburger">
             <span></span><span></span><span></span>
         </div>
@@ -1120,7 +1177,7 @@
                 <div class="hero-animate">
                     <div class="hero-badge">
                         <div class="hero-badge-dot"></div>
-                        Serving North American businesses
+                        Now accepting new clients
                     </div>
                 </div>
 
@@ -1422,26 +1479,26 @@
                 <div class="about-content">
                     <div class="reveal">
                         <p class="section-label">About</p>
-                        <h2>Built by a local who gets it.</h2>
+                        <h2>Built by someone who gets small business.</h2>
                         <p>
-                            I'm Isaac Dobson, born and raised in Southern Alberta. I started Chinook Web Design
-                            because I kept seeing great local businesses get passed over simply because they didn't
-                            have a website — or the one they had was terrible.
+                            I'm Isaac Dobson. I started Chinook Web Design because I kept meeting business owners
+                            who were either stuck without a website or paying too much for one that didn't work.
+                            That didn't sit right with me.
                         </p>
                         <p>
-                            I don't hide behind a big agency name or charge five figures for a WordPress template.
-                            I build every site myself, I answer my own phone, and I actually care whether your
-                            website brings in business.
+                            There's no big agency behind the curtain — just me. I build every site myself, I answer
+                            my own phone, and I actually care whether your website brings in business. No five-figure
+                            invoices, no WordPress templates, no runaround.
                         </p>
                     </div>
                     <div class="about-highlights reveal">
                         <div class="about-highlight">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            Based in Lethbridge, AB
+                            Remote-friendly, always personal
                         </div>
                         <div class="about-highlight">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            Free demo — always
+                            Free estimates — always
                         </div>
                         <div class="about-highlight">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1467,28 +1524,28 @@
 
             <div class="faq-grid">
                 <div class="faq-item reveal reveal-delay-1">
-                    <h3>What does "free demo" actually mean?</h3>
-                    <p>We build a working version of your website before you pay anything. If you like it, we talk pricing. If not, no hard feelings — you owe nothing.</p>
+                    <h3 class="faq-question">What does "free demo" actually mean?</h3>
+                    <p class="faq-answer">We build a working version of your website before you pay anything. If you like it, we talk pricing. If not, no hard feelings — you owe nothing.</p>
                 </div>
                 <div class="faq-item reveal reveal-delay-2">
-                    <h3>How long does it take to get my site?</h3>
-                    <p>Most sites go from demo to live within 48 hours of approval. Complex builds with custom features may take a bit longer.</p>
+                    <h3 class="faq-question">How long does it take to get my site?</h3>
+                    <p class="faq-answer">Most sites go from demo to live within 48 hours of approval. Complex builds with custom features may take a bit longer.</p>
                 </div>
                 <div class="faq-item reveal reveal-delay-1">
-                    <h3>Do I own my website?</h3>
-                    <p>Yes, 100%. You own the design, the content, and the domain. If you ever want to move it somewhere else, it's yours to take.</p>
+                    <h3 class="faq-question">Do I own my website?</h3>
+                    <p class="faq-answer">Yes, 100%. You own the design, the content, and the domain. If you ever want to move it somewhere else, it's yours to take.</p>
                 </div>
                 <div class="faq-item reveal reveal-delay-2">
-                    <h3>What about hosting and domain?</h3>
-                    <p>We handle everything — hosting, domain setup, SSL certificate, and ongoing maintenance. It's all included so you don't have to think about it.</p>
+                    <h3 class="faq-question">What about hosting and domain?</h3>
+                    <p class="faq-answer">We handle everything — hosting, domain setup, SSL certificate, and ongoing maintenance. It's all included so you don't have to think about it.</p>
                 </div>
                 <div class="faq-item reveal reveal-delay-1">
-                    <h3>Can I make changes after launch?</h3>
-                    <p>Absolutely. Need to update your hours, add a photo, or change your prices? Just send us a message and we'll handle it.</p>
+                    <h3 class="faq-question">Can I make changes after launch?</h3>
+                    <p class="faq-answer">Absolutely. Need to update your hours, add a photo, or change your prices? Just send us a message and we'll handle it.</p>
                 </div>
                 <div class="faq-item reveal reveal-delay-2">
-                    <h3>I already have a website but it's bad. Can you help?</h3>
-                    <p>That's actually most of our clients. We'll build you a modern replacement and migrate everything over. Same domain, better site.</p>
+                    <h3 class="faq-question">I already have a website but it's bad. Can you help?</h3>
+                    <p class="faq-answer">That's actually most of our clients. We'll build you a modern replacement and migrate everything over. Same domain, better site.</p>
                 </div>
             </div>
         </div>
@@ -1513,7 +1570,7 @@
                 </a>
                 <a href="https://calendly.com/chinookwebdesign" class="btn btn-outline">Book a Call</a>
             </div>
-            <p class="cta-sub reveal">Based in Lethbridge, AB — serving businesses across North America</p>
+            <p class="cta-sub reveal">Working with local businesses everywhere — remote-friendly, always personal</p>
         </div>
     </section>
 
@@ -1523,9 +1580,11 @@
             <div class="footer-inner">
                 <a href="#" class="logo" style="font-size: 1.1rem;">
                     <div class="logo-mark" style="width: 30px; height: 30px;">
-                        <svg viewBox="0 0 80 70" fill="none" style="width: 14px; height: 14px;">
-                            <path d="M38 10 C55 5, 68 15, 65 32 C62 49, 48 58, 35 53" stroke="#64ffda" stroke-width="6" fill="none" stroke-linecap="round"/>
-                            <path d="M15 55 L28 35 L41 55" stroke="#64ffda" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                        <svg viewBox="0 0 60 60" fill="none" style="width: 14px; height: 14px;">
+                            <defs><linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#64ffda"/><stop offset="100%" stop-color="#00b4d8"/></linearGradient></defs>
+                            <path d="M39 14 C50 11, 54 18, 52 30 C50 42, 42 50, 32 47" stroke="url(#footerLogoGrad)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                            <path d="M18 44 L27 28 L36 44" stroke="#64ffda" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+                            <path d="M42 22 Q52 19, 56 23" stroke="#64ffda" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.45"/>
                         </svg>
                     </div>
                     Chinook
@@ -1545,29 +1604,86 @@
                         <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
                     </a>
                 </div>
-                <p class="footer-copy">&copy; 2026 Chinook Web Design. Lethbridge, Alberta.</p>
+                <p class="footer-copy">&copy; 2026 Chinook Web Design.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // ═══════════════════════════════════════
-        // SCROLL REVEAL (IntersectionObserver)
-        // ═══════════════════════════════════════
-        const revealElements = document.querySelectorAll('.reveal, .hero-animate');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        // Pure CSS + IntersectionObserver animations — no external dependencies
+        function initAnimations() {
+            // Hero elements: animate immediately with CSS
+            document.querySelectorAll('.hero-animate').forEach((el, i) => {
+                el.style.animation = 'heroFadeIn 0.7s ease ' + (0.1 + i * 0.15) + 's both';
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        revealElements.forEach(el => revealObserver.observe(el));
 
-        // Trigger hero animations immediately
-        setTimeout(() => {
-            document.querySelectorAll('.hero-animate').forEach(el => el.classList.add('visible'));
-        }, 100);
+            // Below-fold: IntersectionObserver adds .visible class on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Counter animation for stats
+            function animateCounter(element) {
+                const text = element.textContent.trim();
+                const match = text.match(/^([^0-9]*)(\d+)(.*)$/);
+                if (!match) return;
+                const prefix = match[1], target = parseInt(match[2], 10), suffix = match[3];
+                let current = 0;
+                const duration = 1500, step = Math.max(1, Math.floor(target / (duration / 16)));
+                function update() {
+                    current = Math.min(current + step, target);
+                    element.textContent = prefix + current + suffix;
+                    if (current < target) requestAnimationFrame(update);
+                }
+                setTimeout(update, 800);
+            }
+            document.querySelectorAll('.stat-number').forEach(animateCounter);
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                if (!question || !answer) return;
+                answer.style.maxHeight = '0';
+                answer.style.overflow = 'hidden';
+                answer.style.transition = 'max-height 0.4s ease, opacity 0.3s ease';
+                answer.style.opacity = '0';
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('active');
+                    document.querySelectorAll('.faq-item.active').forEach(other => {
+                        if (other !== item) {
+                            other.classList.remove('active');
+                            const a = other.querySelector('.faq-answer');
+                            if (a) { a.style.maxHeight = '0'; a.style.opacity = '0'; }
+                        }
+                    });
+                    if (isOpen) {
+                        item.classList.remove('active');
+                        answer.style.maxHeight = '0';
+                        answer.style.opacity = '0';
+                    } else {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        answer.style.opacity = '1';
+                    }
+                });
+            });
+
+        } // end initAnimations
+
+        // Run animations: if DOM is already ready, fire now; otherwise wait
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAnimations);
+        } else {
+            initAnimations();
+        }
 
         // ═══════════════════════════════════════
         // NAVBAR SCROLL
@@ -1621,21 +1737,6 @@
         });
 
         // ═══════════════════════════════════════
-        // COUNTER ANIMATION
-        // ═══════════════════════════════════════
-        const counterElements = document.querySelectorAll('.hero-stat h3');
-        let counterDone = false;
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !counterDone) {
-                    counterDone = true;
-                    // Simple counter animation is already handled by reveal
-                }
-            });
-        }, { threshold: 0.5 });
-        counterElements.forEach(el => counterObserver.observe(el));
-
-        // ═══════════════════════════════════════
         // MOUSE-TRACKING GLASS ORB
         // ═══════════════════════════════════════
         const glassOrb = document.getElementById('glassOrb');
@@ -1655,7 +1756,6 @@
                 const tiltX = (y - 0.5) * 6;
                 const tiltY = (x - 0.5) * -6;
                 card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-4px)`;
-                // Move specular highlight
                 card.style.backgroundImage = `
                     radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(255,255,255,0.08) 0%, transparent 50%),
                     linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 40%, rgba(100,255,218,0.02) 60%, rgba(255,255,255,0.05) 100%)
