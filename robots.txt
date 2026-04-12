@@ -1,0 +1,12 @@
+# Robots.txt for chinookwebdesign.com
+# Allows all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://chinookwebdesign.com/sitemap.xml
+
+# Crawl delay (in seconds) - optional, adjust if needed
+Crawl-delay: 1
