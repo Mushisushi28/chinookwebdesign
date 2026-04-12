@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -66,9 +66,9 @@
         a:hover { color: var(--white); }
         img { max-width: 100%; height: auto; }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            AURORA BACKGROUND
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .aurora {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -120,9 +120,9 @@
             background-size: 256px 256px;
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            LIQUID GLASS SYSTEM
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .liquid-glass {
             background: linear-gradient(
                 135deg,
@@ -157,7 +157,7 @@
             z-index: 1;
         }
 
-        /* Glass sheen — animated light sweep */
+        /* Glass sheen � animated light sweep */
         .glass-sheen::after {
             content: '';
             position: absolute;
@@ -184,7 +184,7 @@
             85% { opacity: 0; }
         }
 
-        /* Edge glow — chromatic rim light */
+        /* Edge glow � chromatic rim light */
         .glass-glow {
             box-shadow:
                 inset 0 1px 0 0 rgba(255,255,255,0.15),
@@ -195,9 +195,9 @@
                 0 0 0 0.5px rgba(255,255,255,0.08);
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            NAVIGATION
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         nav {
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
@@ -303,9 +303,9 @@
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
         .hamburger span { width: 24px; height: 2px; background: var(--cyan); transition: 0.3s; border-radius: 2px; }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            LAYOUT
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         section { padding: 7rem 0; }
 
@@ -340,9 +340,9 @@
             margin-bottom: 3.5rem;
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            BUTTONS
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -383,9 +383,9 @@
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 20px rgba(100,255,218,0.1);
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            HERO
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -469,9 +469,9 @@
             margin-top: 0.2rem;
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            SERVICES
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -621,9 +621,9 @@
             z-index: 3;
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            PROCESS
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .process-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -677,9 +677,9 @@
         .process-step h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
         .process-step p { font-size: 0.88rem; line-height: 1.7; color: var(--slate); }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            PORTFOLIO
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -783,9 +783,9 @@
             box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            ABOUT
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .about-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -851,9 +851,9 @@
         }
         .about-highlight svg { width: 18px; height: 18px; stroke: var(--cyan); fill: none; stroke-width: 2; flex-shrink: 0; }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            FAQ
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -894,9 +894,9 @@
             line-height: 1.7;
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            CTA
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .cta-section {
             text-align: center;
             position: relative;
@@ -942,9 +942,9 @@
             position: relative;
         }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            FOOTER
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         footer {
             border-top: 1px solid rgba(255,255,255,0.06);
             padding: 3rem 0;
@@ -980,10 +980,10 @@
         .footer-social a svg { width: 16px; height: 16px; stroke: var(--slate); fill: none; stroke-width: 2; }
         .footer-social a:hover svg { stroke: var(--cyan); }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            SCROLL ANIMATIONS
            IntersectionObserver adds .visible on scroll.
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         .reveal {
             opacity: 1;
             transform: none;
@@ -993,7 +993,7 @@
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* Hero animations — pure CSS staggered entrance */
+        /* Hero animations � pure CSS staggered entrance */
         @keyframes heroFadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -1006,9 +1006,9 @@
         .hero-animate:nth-child(4) { transition-delay: 0.55s; }
         .hero-animate:nth-child(5) { transition-delay: 0.7s; }
 
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            RESPONSIVE
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         @media (max-width: 1024px) {
             .services-grid { grid-template-columns: 1fr; max-width: 500px; }
             .process-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -1057,9 +1057,9 @@
             .cta-buttons { flex-direction: column; align-items: center; }
             .cta-buttons .btn { width: 100%; max-width: 300px; }
         }
-        /* ═══════════════════════════════════════
+        /* ---------------------------------------
            REDUCED MOTION
-           ═══════════════════════════════════════ */
+           --------------------------------------- */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -1189,7 +1189,7 @@
 
                 <p class="hero-text hero-animate">
                     Your business deserves more than a Facebook page. We build fast, modern websites
-                    that make your phone ring — and we'll show you a working demo before you spend a dime.
+                    that make your phone ring � and we'll show you a working demo before you spend a dime.
                 </p>
 
                 <div class="hero-buttons hero-animate">
@@ -1207,7 +1207,7 @@
                     </div>
                     <div class="hero-stat">
                         <h3>$0</h3>
-                        <p>Demo cost — zero risk</p>
+                        <p>Demo cost � zero risk</p>
                     </div>
                     <div class="hero-stat">
                         <h3>100%</h3>
@@ -1347,27 +1347,14 @@
                     <div class="portfolio-preview">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
-                            <div class="mini-site" style="background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);">
-                                <div style="padding: 10px 14px;">
-                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                                        <div style="display:flex; align-items:center; gap:4px;"><div style="width:6px;height:6px;background:#3b82f6;border-radius:2px;"></div><div style="width:40px;height:4px;background:rgba(255,255,255,0.3);border-radius:2px;"></div></div>
-                                        <div style="display:flex; gap:6px;"><div style="width:20px;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;"></div><div style="width:20px;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;"></div><div style="width:30px;height:10px;background:#3b82f6;border-radius:3px;"></div></div>
-                                    </div>
-                                    <div style="width:65%;height:10px;background:rgba(255,255,255,0.25);border-radius:3px;margin-bottom:6px;"></div>
-                                    <div style="width:80%;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:3px;"></div>
-                                    <div style="width:60%;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:10px;"></div>
-                                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
-                                        <div style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:5px;padding:8px 4px;text-align:center;"><div style="width:12px;height:12px;background:rgba(59,130,246,0.3);border-radius:3px;margin:0 auto 4px;"></div><div style="width:70%;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;margin:0 auto;"></div></div>
-                                        <div style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:5px;padding:8px 4px;text-align:center;"><div style="width:12px;height:12px;background:rgba(59,130,246,0.3);border-radius:3px;margin:0 auto 4px;"></div><div style="width:70%;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;margin:0 auto;"></div></div>
-                                        <div style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:5px;padding:8px 4px;text-align:center;"><div style="width:12px;height:12px;background:rgba(59,130,246,0.3);border-radius:3px;margin:0 auto 4px;"></div><div style="width:70%;height:3px;background:rgba(255,255,255,0.15);border-radius:2px;margin:0 auto;"></div></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="https://ak-handyman.vercel.app" target="_blank" rel="noopener">
+                                <img src="portfolio/ak-handyman.png" alt="A.K. Handyman website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" loading="lazy">
+                            </a>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Plumbing &amp; HVAC Company</h3>
-                        <p>Multi-page site with service booking and emergency contact system</p>
+                        <h3>A.K. Handyman</h3>
+                        <p>Professional handyman site with service listings, booking, and emergency contact</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Business Pro</span>
                             <span class="portfolio-tag">Booking</span>
@@ -1380,26 +1367,14 @@
                     <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
-                            <div class="mini-site" style="background: linear-gradient(180deg, #1c1917 0%, #292524 100%);">
-                                <div style="padding: 10px 14px;">
-                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-                                        <div style="display:flex; align-items:center; gap:4px;"><div style="width:6px;height:6px;background:#f59e0b;border-radius:2px;"></div><div style="width:36px;height:4px;background:rgba(255,255,255,0.3);border-radius:2px;"></div></div>
-                                        <div style="display:flex; gap:6px;"><div style="width:18px;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;"></div><div style="width:18px;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;"></div></div>
-                                    </div>
-                                    <div style="width:50%;height:12px;background:rgba(245,158,11,0.25);border-radius:3px;margin-bottom:4px;"></div>
-                                    <div style="width:70%;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:8px;"></div>
-                                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;">
-                                        <div style="height:40px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);border-radius:5px;"></div>
-                                        <div style="height:40px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);border-radius:5px;"></div>
-                                    </div>
-                                    <div style="width:45%;height:10px;background:#f59e0b;border-radius:4px;"></div>
-                                </div>
-                            </div>
+                            <a href="https://black-white-mechanix.vercel.app" target="_blank" rel="noopener">
+                                <img src="portfolio/black-white-mechanix.png" alt="Black and White Mechanix website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" loading="lazy">
+                            </a>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Construction Company</h3>
-                        <p>Project gallery with before/after photos and quote request form</p>
+                        <h3>Black &amp; White Mechanix</h3>
+                        <p>Auto repair shop with service menu, gallery, and customer review integration</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Premium Build</span>
                             <span class="portfolio-tag">Gallery</span>
@@ -1412,28 +1387,17 @@
                     <div class="portfolio-preview" style="background: linear-gradient(135deg, #0d1b2a, #1b2d45);">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
-                            <div class="mini-site" style="background: linear-gradient(180deg, #0c0a09 0%, #1c1917 100%);">
-                                <div style="padding: 10px 14px;">
-                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                                        <div style="display:flex; align-items:center; gap:4px;"><div style="width:6px;height:6px;background:#ef4444;border-radius:50%;"></div><div style="width:32px;height:4px;background:rgba(255,255,255,0.25);border-radius:2px;"></div></div>
-                                        <div style="width:28px;height:9px;background:#ef4444;border-radius:3px;"></div>
-                                    </div>
-                                    <div style="height:35px;background:linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));border-radius:5px;margin-bottom:8px;display:flex;align-items:center;padding:0 8px;"><div style="width:55%;height:5px;background:rgba(255,255,255,0.2);border-radius:2px;"></div></div>
-                                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;">
-                                        <div style="text-align:center;padding:5px;"><div style="width:100%;height:3px;background:rgba(239,68,68,0.3);border-radius:2px;margin-bottom:3px;"></div><div style="width:60%;height:2px;background:rgba(255,255,255,0.1);border-radius:2px;margin:0 auto;"></div></div>
-                                        <div style="text-align:center;padding:5px;"><div style="width:100%;height:3px;background:rgba(239,68,68,0.3);border-radius:2px;margin-bottom:3px;"></div><div style="width:60%;height:2px;background:rgba(255,255,255,0.1);border-radius:2px;margin:0 auto;"></div></div>
-                                        <div style="text-align:center;padding:5px;"><div style="width:100%;height:3px;background:rgba(239,68,68,0.3);border-radius:2px;margin-bottom:3px;"></div><div style="width:60%;height:2px;background:rgba(255,255,255,0.1);border-radius:2px;margin:0 auto;"></div></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="https://chinook-demo-gallery.vercel.app" target="_blank" rel="noopener">
+                                <img src="portfolio/demo-gallery.png" alt="Chinook Demo Gallery screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" loading="lazy">
+                            </a>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Auto Detail Shop</h3>
-                        <p>One-page site with pricing table, gallery, and online booking</p>
+                        <h3>Demo Gallery</h3>
+                        <p>Portfolio showcase with personalized demos for local businesses across 9 regions</p>
                         <div class="portfolio-tags">
                             <span class="portfolio-tag">Starter</span>
-                            <span class="portfolio-tag">Booking</span>
+                            <span class="portfolio-tag">Multi-Region</span>
                         </div>
                     </div>
                 </div>
@@ -1490,7 +1454,7 @@
                             That didn't sit right with me.
                         </p>
                         <p>
-                            There's no big agency behind the curtain — just me. I build every site myself, I answer
+                            There's no big agency behind the curtain � just me. I build every site myself, I answer
                             my own phone, and I actually care whether your website brings in business. No five-figure
                             invoices, no WordPress templates, no runaround.
                         </p>
@@ -1502,7 +1466,7 @@
                         </div>
                         <div class="about-highlight">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            Free estimates — always
+                            Free estimates � always
                         </div>
                         <div class="about-highlight">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1529,7 +1493,7 @@
             <div class="faq-grid">
                 <div class="faq-item reveal reveal-delay-1">
                     <h3 class="faq-question">What does "free demo" actually mean?</h3>
-                    <p class="faq-answer">We build a working version of your website before you pay anything. If you like it, we talk pricing. If not, no hard feelings — you owe nothing.</p>
+                    <p class="faq-answer">We build a working version of your website before you pay anything. If you like it, we talk pricing. If not, no hard feelings � you owe nothing.</p>
                 </div>
                 <div class="faq-item reveal reveal-delay-2">
                     <h3 class="faq-question">How long does it take to get my site?</h3>
@@ -1541,7 +1505,7 @@
                 </div>
                 <div class="faq-item reveal reveal-delay-2">
                     <h3 class="faq-question">What about hosting and domain?</h3>
-                    <p class="faq-answer">We handle everything — hosting, domain setup, SSL certificate, and ongoing maintenance. It's all included so you don't have to think about it.</p>
+                    <p class="faq-answer">We handle everything � hosting, domain setup, SSL certificate, and ongoing maintenance. It's all included so you don't have to think about it.</p>
                 </div>
                 <div class="faq-item reveal reveal-delay-1">
                     <h3 class="faq-question">Can I make changes after launch?</h3>
@@ -1574,7 +1538,7 @@
                 </a>
                 <a href="https://calendly.com/chinookwebdesign" class="btn btn-outline">Book a Call</a>
             </div>
-            <p class="cta-sub reveal">Working with local businesses everywhere — remote-friendly, always personal</p>
+            <p class="cta-sub reveal">Working with local businesses everywhere � remote-friendly, always personal</p>
         </div>
     </section>
 
@@ -1614,7 +1578,7 @@
     </footer>
 
     <script>
-        // Pure CSS + IntersectionObserver animations — no external dependencies
+        // Pure CSS + IntersectionObserver animations � no external dependencies
         function initAnimations() {
             // Hero elements: animate immediately with CSS
             document.querySelectorAll('.hero-animate').forEach((el, i) => {
@@ -1689,9 +1653,9 @@
             initAnimations();
         }
 
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         // NAVBAR SCROLL
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         const navbar = document.getElementById('navbar');
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
@@ -1704,9 +1668,9 @@
             lastScroll = currentScroll;
         }, { passive: true });
 
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         // MOBILE MENU
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => {
@@ -1723,9 +1687,9 @@
             }
         });
 
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         // SMOOTH SCROLL
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1740,18 +1704,18 @@
             });
         });
 
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         // MOUSE-TRACKING GLASS ORB
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         const glassOrb = document.getElementById('glassOrb');
         document.addEventListener('mousemove', (e) => {
             glassOrb.style.left = e.clientX + 'px';
             glassOrb.style.top = e.clientY + 'px';
         }, { passive: true });
 
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         // GLASS CARD TILT EFFECT
-        // ═══════════════════════════════════════
+        // ---------------------------------------
         document.querySelectorAll('.service-card, .portfolio-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
