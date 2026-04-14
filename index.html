@@ -992,11 +992,6 @@
         .reveal {
             opacity: 1;
             transform: none;
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
@@ -1008,15 +1003,8 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .hero-animate {
-            opacity: 1;
-            transform: none;
-        }
-        .hero-animate.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        .hero-animate { opacity: 1; transform: translateY(0); }
+        .hero-animate.visible { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
         .hero-animate:nth-child(1) { transition-delay: 0.1s; }
         .hero-animate:nth-child(2) { transition-delay: 0.25s; }
         .hero-animate:nth-child(3) { transition-delay: 0.4s; }
@@ -1706,198 +1694,42 @@
         </div>
     </footer>
 
-    <!-- GSAP + ScrollTrigger CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        // GSAP Scroll Animations for Chinook Web Design
-        // Progressive enhancement: IntersectionObserver fallback if GSAP fails animations � no external dependencies
+        // Pure CSS + IntersectionObserver animations � no external dependencies
         function initAnimations() {
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const isMobile = window.innerWidth < 768;
-            const hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+            // Hero elements: animate immediately with CSS
+            document.querySelectorAll('.hero-animate').forEach((el, i) => {
+                el.style.animation = 'heroFadeIn 0.7s ease ' + (0.1 + i * 0.15) + 's both';
+            });
 
-            if (prefersReducedMotion) {
-                document.querySelectorAll('.hero-animate, .reveal').forEach(el => el.classList.add('visible'));
-                return;
-            }
-
-            // --- HERO ANIMATIONS ---
-            if (hasGSAP) {
-                gsap.registerPlugin(ScrollTrigger);
-                const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-                heroTl.from('.hero-badge', { opacity: 0, y: 20, duration: 0.6 }, 0.2)
-                       .from('.hero-animate:nth-child(2)', { opacity: 0, y: 28, duration: 0.7 }, 0.35)
-                       .from('.hero-text', { opacity: 0, y: 24, duration: 0.7 }, 0.5)
-                       .from('.hero-buttons', { opacity: 0, y: 20, duration: 0.6 }, 0.65)
-                       .from('.hero-stats', { opacity: 0, y: 16, duration: 0.5 }, 0.8);
-                document.querySelectorAll('.hero-animate').forEach(el => el.classList.add('visible'));
-            } else {
-                document.querySelectorAll('.hero-animate').forEach((el, i) => {
-                    el.style.animation = 'heroFadeIn 0.7s ease ' + (0.1 + i * 0.15) + 's both';
-                });
-            }
-
-            // --- SCROLL REVEAL ANIMATIONS ---
-            if (hasGSAP) {
-                // Section headings: fade up
-                gsap.utils.toArray('#services > .container > .reveal, #process > .container > .reveal, #work > .container > .reveal, #about > .container > .reveal, #blog > .container > .reveal, #faq > .container > .reveal, #contact > .container > .reveal').forEach(el => {
-                    el.classList.add('visible');
-                    gsap.from(el, {
-                        opacity: 0,
-                        y: isMobile ? 24 : 40,
-                        duration: isMobile ? 0.5 : 0.7,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-                    });
-                });
-
-                // Service cards: subtle scale-up entrance
-                gsap.utils.toArray('.service-card.reveal').forEach(card => {
-                    card.classList.add('visible');
-                    const hasDelay2 = card.classList.contains('reveal-delay-2');
-                    const hasDelay3 = card.classList.contains('reveal-delay-3');
-                    const delay = hasDelay3 ? 0.3 : hasDelay2 ? 0.15 : 0;
-                    gsap.from(card, {
-                        opacity: 0,
-                        y: isMobile ? 20 : 36,
-                        scale: isMobile ? 1 : 0.97,
-                        duration: isMobile ? 0.5 : 0.65,
-                        delay: delay,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: card, start: 'top 90%', once: true }
-                    });
-                });
-
-                // Portfolio cards: staggered fade-up
-                gsap.utils.toArray('.portfolio-card.reveal').forEach(card => {
-                    card.classList.add('visible');
-                    gsap.from(card, {
-                        opacity: 0,
-                        y: isMobile ? 24 : 44,
-                        duration: isMobile ? 0.5 : 0.7,
-                        delay: card.classList.contains('reveal-delay-2') ? 0.12 : 0,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: card, start: 'top 88%', once: true }
-                    });
-                });
-
-                // Process steps: staggered entrance
-                const processSteps = gsap.utils.toArray('.process-step.reveal');
-                if (processSteps.length) {
-                    processSteps.forEach(el => el.classList.add('visible'));
-                    gsap.from(processSteps, {
-                        opacity: 0,
-                        y: isMobile ? 20 : 32,
-                        stagger: isMobile ? 0.08 : 0.15,
-                        duration: isMobile ? 0.45 : 0.6,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: processSteps[0], start: 'top 85%', once: true }
-                    });
-                }
-
-                // FAQ items: subtle fade
-                gsap.utils.toArray('.faq-item.reveal').forEach(item => {
-                    item.classList.add('visible');
-                    gsap.from(item, {
-                        opacity: 0,
-                        y: isMobile ? 16 : 24,
-                        duration: 0.5,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: item, start: 'top 90%', once: true }
-                    });
-                });
-
-                // About section: directional entrance
-                const aboutImage = document.querySelector('.about-image.reveal');
-                const aboutContent = document.querySelector('.about-content > .reveal');
-                const aboutHighlights = document.querySelector('.about-highlights.reveal');
-                if (aboutImage) {
-                    aboutImage.classList.add('visible');
-                    gsap.from(aboutImage, {
-                        opacity: 0, x: isMobile ? 0 : -40,
-                        duration: isMobile ? 0.5 : 0.7,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: aboutImage, start: 'top 85%', once: true }
-                    });
-                }
-                if (aboutContent) {
-                    aboutContent.classList.add('visible');
-                    gsap.from(aboutContent, {
-                        opacity: 0, x: isMobile ? 0 : 40,
-                        duration: isMobile ? 0.5 : 0.7,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: aboutContent, start: 'top 85%', once: true }
-                    });
-                }
-                if (aboutHighlights) {
-                    aboutHighlights.classList.add('visible');
-                    gsap.from(aboutHighlights, {
-                        opacity: 0, y: 20,
-                        duration: 0.5,
-                        ease: 'power3.out',
-                        scrollTrigger: { trigger: aboutHighlights, start: 'top 88%', once: true }
-                    });
-                }
-
-                // Hero parallax on aurora blobs (desktop only, very subtle)
-                if (!isMobile) {
-                    gsap.to('.aurora-blob', {
-                        yPercent: -15,
-                        ease: 'none',
-                        scrollTrigger: {
-                            trigger: '.hero',
-                            start: 'top top',
-                            end: 'bottom top',
-                            scrub: 1.2
-                        }
-                    });
-                }
-
-                // Counter animation for stats (GSAP version)
-                document.querySelectorAll('.stat-number').forEach(el => {
-                    const text = el.textContent.trim();
-                    const match = text.match(/^([^0-9]*)(\d+)(.*)$/);
-                    if (!match) return;
-                    const prefix = match[1], target = parseInt(match[2], 10), suffix = match[3];
-                    const obj = { val: 0 };
-                    gsap.to(obj, {
-                        val: target,
-                        duration: target > 50 ? 1.8 : 1.2,
-                        ease: 'power2.out',
-                        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-                        onUpdate: () => { el.textContent = prefix + Math.round(obj.val) + suffix; }
-                    });
-                });
-
-            } else {
-                // Fallback: IntersectionObserver for when GSAP is unavailable
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-                // Counter fallback (non-GSAP path)
-                document.querySelectorAll('.stat-number').forEach(el => {
-                    const text = el.textContent.trim();
-                    const match = text.match(/^([^0-9]*)(\d+)(.*)$/);
-                    if (!match) return;
-                    const prefix = match[1], target = parseInt(match[2], 10), suffix = match[3];
-                    let current = 0;
-                    const duration = 1500, step = Math.max(1, Math.floor(target / (duration / 16)));
-                    function update() {
-                        current = Math.min(current + step, target);
-                        el.textContent = prefix + current + suffix;
-                        if (current < target) requestAnimationFrame(update);
+            // Below-fold: IntersectionObserver adds .visible class on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
                     }
-                    setTimeout(update, 800);
                 });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // Counter animation for stats
+            function animateCounter(element) {
+                const text = element.textContent.trim();
+                const match = text.match(/^([^0-9]*)(\d+)(.*)$/);
+                if (!match) return;
+                const prefix = match[1], target = parseInt(match[2], 10), suffix = match[3];
+                let current = 0;
+                const duration = 1500, step = Math.max(1, Math.floor(target / (duration / 16)));
+                function update() {
+                    current = Math.min(current + step, target);
+                    element.textContent = prefix + current + suffix;
+                    if (current < target) requestAnimationFrame(update);
+                }
+                setTimeout(update, 800);
             }
+            document.querySelectorAll('.stat-number').forEach(animateCounter);
 
             // FAQ accordion
             document.querySelectorAll('.faq-item').forEach(item => {
