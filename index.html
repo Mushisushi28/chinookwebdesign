@@ -162,7 +162,7 @@
             z-index: 1;
         }
 
-        /* Glass sheen � animated light sweep */
+        /* Glass sheen — animated light sweep */
         .glass-sheen::after {
             content: '';
             position: absolute;
@@ -189,7 +189,7 @@
             85% { opacity: 0; }
         }
 
-        /* Edge glow � chromatic rim light */
+        /* Edge glow — chromatic rim light */
         .glass-glow {
             box-shadow:
                 inset 0 1px 0 0 rgba(255,255,255,0.15),
@@ -484,6 +484,8 @@
         }
 
         .service-card {
+            display: flex;
+            flex-direction: column;
             background: linear-gradient(
                 135deg,
                 rgba(255,255,255,0.07) 0%,
@@ -597,11 +599,15 @@
             flex-shrink: 0;
         }
 
+        .card-footer {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
         .service-price {
             display: inline-flex;
             align-items: baseline;
             gap: 0.3rem;
-            margin-top: auto;
         }
         .service-price .from { font-size: 0.8rem; color: var(--slate); }
         .service-price .amount {
@@ -609,6 +615,73 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--white);
+        }
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            padding: 0.65rem 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            border-radius: var(--radius-xs);
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid rgba(100,255,218,0.25);
+            color: var(--cyan);
+            background: linear-gradient(135deg, rgba(100,255,218,0.06), rgba(100,255,218,0.02));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .card-cta:hover {
+            background: linear-gradient(135deg, rgba(100,255,218,0.12), rgba(100,255,218,0.05));
+            border-color: rgba(100,255,218,0.45);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(100,255,218,0.15);
+            color: var(--cyan);
+        }
+        .card-cta svg {
+            width: 16px; height: 16px;
+            stroke: currentColor; fill: none; stroke-width: 2;
+            transition: transform 0.3s ease;
+        }
+        .card-cta:hover svg { transform: translateX(3px); }
+        .service-card.featured .card-cta {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            color: var(--navy);
+            border: none;
+            box-shadow: 0 4px 15px rgba(100,255,218,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .service-card.featured .card-cta:hover {
+            box-shadow: 0 8px 30px rgba(100,255,218,0.3), 0 0 40px rgba(100,255,218,0.1);
+            color: var(--navy);
+        }
+        .service-card.featured .card-cta svg { stroke: var(--navy); }
+
+        /* Scroll progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            width: 0%; height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple));
+            z-index: 1001;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(100,255,218,0.4);
+        }
+
+        /* Section dividers */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(100,255,218,0.12) 20%, rgba(0,180,216,0.1) 50%, rgba(123,97,255,0.08) 80%, transparent);
+            margin: 0;
+        }
+
+        /* Hero stat counter animation */
+        .hero-stat h3 {
+            display: inline-block;
         }
 
         .popular-badge {
@@ -988,28 +1061,140 @@
         /* ---------------------------------------
            SCROLL ANIMATIONS
            IntersectionObserver adds .visible on scroll.
+           Multiple animation types for visual variety.
            --------------------------------------- */
-        .reveal {
-            opacity: 1;
-            transform: none;
-        }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
 
-        /* Hero animations � pure CSS staggered entrance */
-        @keyframes heroFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Base reveal: fade up */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
         }
-        .hero-animate { opacity: 1; transform: translateY(0); }
-        .hero-animate.visible { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .hero-animate:nth-child(1) { transition-delay: 0.1s; }
-        .hero-animate:nth-child(2) { transition-delay: 0.25s; }
-        .hero-animate:nth-child(3) { transition-delay: 0.4s; }
-        .hero-animate:nth-child(4) { transition-delay: 0.55s; }
-        .hero-animate:nth-child(5) { transition-delay: 0.7s; }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fade from left */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Fade from right */
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Scale in */
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays -- granular for smooth cascades */
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+        .reveal-delay-4 { transition-delay: 0.32s; }
+        .reveal-delay-5 { transition-delay: 0.40s; }
+        .reveal-delay-6 { transition-delay: 0.48s; }
+        .reveal-delay-7 { transition-delay: 0.56s; }
+        .reveal-delay-8 { transition-delay: 0.64s; }
+
+        /* Hero entrance animations */
+        .hero-animate {
+            opacity: 0;
+            transform: translateY(28px);
+            filter: blur(4px);
+        }
+        .hero-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hero-animate:nth-child(1) { transition-delay: 0.15s; }
+        .hero-animate:nth-child(2) { transition-delay: 0.30s; }
+        .hero-animate:nth-child(3) { transition-delay: 0.50s; }
+        .hero-animate:nth-child(4) { transition-delay: 0.65s; }
+        .hero-animate:nth-child(5) { transition-delay: 0.85s; }
+
+        /* Pricing card glow ring on featured */
+        .service-card.featured {
+            border-color: rgba(100,255,218,0.25);
+            transform: scale(1.04);
+            z-index: 2;
+            box-shadow:
+                inset 0 1px 0 0 rgba(255,255,255,0.14),
+                inset 0 -1px 0 0 rgba(255,255,255,0.04),
+                0 0 0 1px rgba(100,255,218,0.18),
+                0 0 50px rgba(100,255,218,0.1),
+                0 0 100px rgba(100,255,218,0.05),
+                0 12px 40px rgba(0,0,0,0.25);
+        }
+        .service-card.featured:hover {
+            transform: scale(1.06);
+        }
+        .service-card.featured::before { opacity: 1; }
+
+        /* Pricing amount emphasis */
+        .service-price .amount {
+            background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .service-card.featured .service-price .amount {
+            font-size: 2.1rem;
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Section-level subtle background fade */
+        section {
+            position: relative;
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(100,255,218,0.015), transparent 70%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1.2s ease 0.3s;
+        }
+        section.revealed::before {
+            opacity: 1;
+        }
 
         /* ---------------------------------------
            RESPONSIVE
@@ -1072,7 +1257,7 @@
                 transition-duration: 0.01ms !important;
                 scroll-behavior: auto !important;
             }
-            .reveal {
+            .reveal, .reveal-left, .reveal-right, .reveal-scale {
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;
@@ -1080,7 +1265,9 @@
             .hero-animate {
                 opacity: 1 !important;
                 transform: none !important;
+                filter: none !important;
             }
+            section::before { opacity: 1 !important; }
         }
     </style>
     <script type="application/ld+json">
@@ -1185,6 +1372,12 @@
     </script>
 </head>
 <body>
+    <noscript>
+      <style>
+        .reveal, .reveal-left, .reveal-right, .reveal-scale, .hero-animate { opacity: 1 !important; transform: none !important; filter: none !important; }
+        section::before { opacity: 1 !important; }
+      </style>
+    </noscript>
 
     <!-- SVG Filters for glass refraction -->
     <svg style="position:absolute;width:0;height:0;" aria-hidden="true">
@@ -1219,6 +1412,9 @@
         transition: left 0.8s ease-out, top 0.8s ease-out;
         opacity: 0.6;
     "></div>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -1266,7 +1462,7 @@
 
                 <p class="hero-text hero-animate">
                     Your business deserves more than a Facebook page. We build fast, modern websites
-                    that make your phone ring � and we'll show you a working demo before you spend a dime.
+                    that make your phone ring — and we'll show you a working demo before you spend a dime.
                 </p>
 
                 <div class="hero-buttons hero-animate">
@@ -1284,7 +1480,7 @@
                     </div>
                     <div class="hero-stat">
                         <h3>$0</h3>
-                        <p>Demo cost � zero risk</p>
+                        <p>Demo cost — zero risk</p>
                     </div>
                     <div class="hero-stat">
                         <h3>100%</h3>
@@ -1308,7 +1504,7 @@
             </div>
 
             <div class="services-grid">
-                <div class="service-card reveal reveal-delay-1">
+                <div class="service-card reveal-scale reveal-delay-1">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                     </div>
@@ -1321,13 +1517,19 @@
                         <li>Basic SEO setup</li>
                         <li>Custom domain</li>
                     </ul>
-                    <div class="service-price">
-                        <span class="from">from</span>
-                        <span class="amount">$500</span>
+                    <div class="card-footer">
+                        <div class="service-price">
+                            <span class="from">from</span>
+                            <span class="amount">$500</span>
+                        </div>
+                        <a href="#contact" class="card-cta">
+                            Get Started
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
                 </div>
 
-                <div class="service-card featured reveal reveal-delay-2">
+                <div class="service-card featured reveal-scale reveal-delay-3">
                     <div class="popular-badge">Most Popular</div>
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -1342,13 +1544,19 @@
                         <li>Analytics &amp; lead tracking</li>
                         <li>Ongoing support</li>
                     </ul>
-                    <div class="service-price">
-                        <span class="from">from</span>
-                        <span class="amount">$1,200</span>
+                    <div class="card-footer">
+                        <div class="service-price">
+                            <span class="from">from</span>
+                            <span class="amount">$1,200</span>
+                        </div>
+                        <a href="#contact" class="card-cta">
+                            Request Free Demo
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
                 </div>
 
-                <div class="service-card reveal reveal-delay-3">
+                <div class="service-card reveal-scale reveal-delay-5">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
@@ -1362,14 +1570,22 @@
                         <li>Advanced SEO &amp; speed optimization</li>
                         <li>Priority support</li>
                     </ul>
-                    <div class="service-price">
-                        <span class="from">from</span>
-                        <span class="amount">$2,500</span>
+                    <div class="card-footer">
+                        <div class="service-price">
+                            <span class="from">from</span>
+                            <span class="amount">$2,500</span>
+                        </div>
+                        <a href="#contact" class="card-cta">
+                            Get Started
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- Process -->
     <section id="process">
@@ -1383,22 +1599,22 @@
             </div>
 
             <div class="process-grid">
-                <div class="process-step reveal reveal-delay-1">
+                <div class="process-step reveal reveal-delay-2">
                     <div class="process-number">01</div>
                     <h3>Free Demo</h3>
                     <p>We build a working version of your website before you spend a dime. See exactly what you're getting.</p>
                 </div>
-                <div class="process-step reveal reveal-delay-2">
+                <div class="process-step reveal reveal-delay-3">
                     <div class="process-number">02</div>
                     <h3>Your Feedback</h3>
                     <p>Tell us what you love, what to tweak. We refine it until it's exactly what your business needs.</p>
                 </div>
-                <div class="process-step reveal reveal-delay-3">
+                <div class="process-step reveal reveal-delay-4">
                     <div class="process-number">03</div>
                     <h3>Go Live</h3>
                     <p>We launch on fast hosting with your custom domain. SSL, speed optimized, ready for customers.</p>
                 </div>
-                <div class="process-step reveal reveal-delay-4">
+                <div class="process-step reveal reveal-delay-5">
                     <div class="process-number">04</div>
                     <h3>Grow</h3>
                     <p>Ongoing support, updates, and changes whenever you need them. We're a partner, not a vendor.</p>
@@ -1406,6 +1622,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- Portfolio -->
     <section id="work">
@@ -1420,7 +1638,7 @@
             </div>
 
             <div class="portfolio-grid">
-                <div class="portfolio-card reveal reveal-delay-1">
+                <div class="portfolio-card reveal-scale reveal-delay-1">
                     <div class="portfolio-preview">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
@@ -1440,7 +1658,7 @@
                     </div>
                 </div>
 
-                <div class="portfolio-card reveal reveal-delay-2">
+                <div class="portfolio-card reveal-scale reveal-delay-3">
                     <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
@@ -1460,7 +1678,7 @@
                     </div>
                 </div>
 
-                <div class="portfolio-card reveal reveal-delay-1">
+                <div class="portfolio-card reveal-scale reveal-delay-5">
                     <div class="portfolio-preview" style="background: linear-gradient(135deg, #0d1b2a, #1b2d45);">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
@@ -1479,7 +1697,7 @@
                     </div>
                 </div>
 
-                <div class="portfolio-card reveal reveal-delay-2">
+                <div class="portfolio-card reveal-scale reveal-delay-7">
                     <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a0f2e, #2d1b4e);">
                         <div class="browser-frame">
                             <div class="browser-dots"><span></span><span></span><span></span></div>
@@ -1514,15 +1732,17 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- About -->
     <section id="about">
         <div class="container">
             <div class="about-layout">
-                <div class="about-image reveal">
+                <div class="about-image reveal-left">
                     <div class="about-avatar">ID</div>
                 </div>
                 <div class="about-content">
-                    <div class="reveal">
+                    <div class="reveal-right">
                         <p class="section-label">About</p>
                         <h2>Built by someone who gets small business.</h2>
                         <p>
@@ -1531,19 +1751,19 @@
                             That didn't sit right with me.
                         </p>
                         <p>
-                            There's no big agency behind the curtain � just me. I build every site myself, I answer
+                            There's no big agency behind the curtain — just me. I build every site myself, I answer
                             my own phone, and I actually care whether your website brings in business. No five-figure
                             invoices, no WordPress templates, no runaround.
                         </p>
                     </div>
-                    <div class="about-highlights reveal">
+                    <div class="about-highlights reveal-right reveal-delay-3">
                         <div class="about-highlight">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             Remote-friendly, always personal
                         </div>
                         <div class="about-highlight">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            Free estimates � always
+                            Free estimates — always
                         </div>
                         <div class="about-highlight">
                             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1559,6 +1779,8 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- Blog -->
     <section id="blog">
         <div class="container">
@@ -1570,7 +1792,7 @@
                 </p>
             </div>
             <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-                <a href="/blog/edmonton-web-design.html" class="service-card reveal reveal-delay-1" style="text-decoration: none; color: inherit; display: block;">
+                <a href="/blog/edmonton-web-design.html" class="service-card reveal-scale reveal-delay-1" style="text-decoration: none; color: inherit; display: block;">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                     </div>
@@ -1578,7 +1800,7 @@
                     <p style="margin-top: 0.75rem; color: var(--slate);">A practical guide to getting your small business found online — what works, what doesn't, and how to avoid wasting money.</p>
                     <p style="margin-top: 1rem; color: var(--cyan); font-size: 0.9rem;">Read article →</p>
                 </a>
-                <a href="/blog/website-cost-canada.html" class="service-card reveal reveal-delay-2" style="text-decoration: none; color: inherit; display: block;">
+                <a href="/blog/website-cost-canada.html" class="service-card reveal-scale reveal-delay-3" style="text-decoration: none; color: inherit; display: block;">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
                     </div>
@@ -1586,7 +1808,7 @@
                     <p style="margin-top: 0.75rem; color: var(--slate);">From $500 starter sites to $10,000+ custom builds — here's what you should actually expect to pay and what drives the price difference.</p>
                     <p style="margin-top: 1rem; color: var(--cyan); font-size: 0.9rem;">Read article →</p>
                 </a>
-                <a href="/blog/small-business-website-signs.html" class="service-card reveal reveal-delay-1" style="text-decoration: none; color: inherit; display: block;">
+                <a href="/blog/small-business-website-signs.html" class="service-card reveal-scale reveal-delay-5" style="text-decoration: none; color: inherit; display: block;">
                     <div class="service-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                     </div>
@@ -1597,6 +1819,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- FAQ -->
     <section id="faq">
@@ -1609,25 +1833,25 @@
             <div class="faq-grid">
                 <div class="faq-item reveal reveal-delay-1">
                     <h3 class="faq-question">What does "free demo" actually mean?</h3>
-                    <p class="faq-answer">We build a working version of your website before you pay anything. If you like it, we talk pricing. If not, no hard feelings � you owe nothing.</p>
+                    <p class="faq-answer">We build a working version of your website before you pay anything. If you like it, we talk pricing. If not, no hard feelings — you owe nothing.</p>
                 </div>
                 <div class="faq-item reveal reveal-delay-2">
                     <h3 class="faq-question">How long does it take to get my site?</h3>
                     <p class="faq-answer">Most sites go from demo to live within 48 hours of approval. Complex builds with custom features may take a bit longer.</p>
                 </div>
-                <div class="faq-item reveal reveal-delay-1">
+                <div class="faq-item reveal reveal-delay-3">
                     <h3 class="faq-question">Do I own my website?</h3>
                     <p class="faq-answer">Yes, 100%. You own the design, the content, and the domain. If you ever want to move it somewhere else, it's yours to take.</p>
                 </div>
-                <div class="faq-item reveal reveal-delay-2">
+                <div class="faq-item reveal reveal-delay-4">
                     <h3 class="faq-question">What about hosting and domain?</h3>
-                    <p class="faq-answer">We handle everything � hosting, domain setup, SSL certificate, and ongoing maintenance. It's all included so you don't have to think about it.</p>
+                    <p class="faq-answer">We handle everything — hosting, domain setup, SSL certificate, and ongoing maintenance. It's all included so you don't have to think about it.</p>
                 </div>
-                <div class="faq-item reveal reveal-delay-1">
+                <div class="faq-item reveal reveal-delay-5">
                     <h3 class="faq-question">Can I make changes after launch?</h3>
                     <p class="faq-answer">Absolutely. Need to update your hours, add a photo, or change your prices? Just send us a message and we'll handle it.</p>
                 </div>
-                <div class="faq-item reveal reveal-delay-2">
+                <div class="faq-item reveal reveal-delay-6">
                     <h3 class="faq-question">I already have a website but it's bad. Can you help?</h3>
                     <p class="faq-answer">That's actually most of our clients. We'll build you a modern replacement and migrate everything over. Same domain, better site.</p>
                 </div>
@@ -1695,11 +1919,21 @@
     </footer>
 
     <script>
-        // Pure CSS + IntersectionObserver animations � no external dependencies
+        // Pure CSS + IntersectionObserver animations — no external dependencies
         function initAnimations() {
-            // Hero elements: animate immediately with CSS
+            // Safety net: ensure all content visible after 3s regardless of IO
+            setTimeout(function() {
+                document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .hero-animate').forEach(function(el) {
+                    el.classList.add('visible');
+                });
+                document.querySelectorAll('section').forEach(function(s) {
+                    s.classList.add('revealed');
+                });
+            }, 3000);
+
+            // Hero: mark visible immediately with stagger (they are in viewport)
             document.querySelectorAll('.hero-animate').forEach((el, i) => {
-                el.style.animation = 'heroFadeIn 0.7s ease ' + (0.1 + i * 0.15) + 's both';
+                setTimeout(function() { el.classList.add('visible'); }, 150 + i * 180);
             });
 
             // Below-fold: IntersectionObserver adds .visible class on scroll
@@ -1710,56 +1944,22 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            // Observe all reveal elements (all animation types)
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
 
-            // Counter animation for stats
-            function animateCounter(element) {
-                const text = element.textContent.trim();
-                const match = text.match(/^([^0-9]*)(\d+)(.*)$/);
-                if (!match) return;
-                const prefix = match[1], target = parseInt(match[2], 10), suffix = match[3];
-                let current = 0;
-                const duration = 1500, step = Math.max(1, Math.floor(target / (duration / 16)));
-                function update() {
-                    current = Math.min(current + step, target);
-                    element.textContent = prefix + current + suffix;
-                    if (current < target) requestAnimationFrame(update);
-                }
-                setTimeout(update, 800);
-            }
-            document.querySelectorAll('.stat-number').forEach(animateCounter);
-
-            // FAQ accordion
-            document.querySelectorAll('.faq-item').forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                if (!question || !answer) return;
-                answer.style.maxHeight = '0';
-                answer.style.overflow = 'hidden';
-                answer.style.transition = 'max-height 0.4s ease, opacity 0.3s ease';
-                answer.style.opacity = '0';
-                question.addEventListener('click', () => {
-                    const isOpen = item.classList.contains('active');
-                    document.querySelectorAll('.faq-item.active').forEach(other => {
-                        if (other !== item) {
-                            other.classList.remove('active');
-                            const a = other.querySelector('.faq-answer');
-                            if (a) { a.style.maxHeight = '0'; a.style.opacity = '0'; }
-                        }
-                    });
-                    if (isOpen) {
-                        item.classList.remove('active');
-                        answer.style.maxHeight = '0';
-                        answer.style.opacity = '0';
-                    } else {
-                        item.classList.add('active');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        answer.style.opacity = '1';
+            // Section-level ambient glow reveal
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        sectionObserver.unobserve(entry.target);
                     }
                 });
-            });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('section').forEach(s => sectionObserver.observe(s));
 
         } // end initAnimations
 
@@ -1771,9 +1971,10 @@
         }
 
         // ---------------------------------------
-        // NAVBAR SCROLL
+        // NAVBAR SCROLL + PROGRESS BAR
         // ---------------------------------------
         const navbar = document.getElementById('navbar');
+        const scrollProgress = document.getElementById('scrollProgress');
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
             const currentScroll = window.scrollY;
@@ -1783,7 +1984,49 @@
                 navbar.classList.remove('scrolled');
             }
             lastScroll = currentScroll;
+
+            // Scroll progress bar
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (currentScroll / docHeight) * 100 : 0;
+            scrollProgress.style.width = progress + '%';
         }, { passive: true });
+
+        // ---------------------------------------
+        // HERO STAT COUNTER ANIMATION
+        // ---------------------------------------
+        function animateCounters() {
+            const stats = document.querySelectorAll('.hero-stat h3');
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const text = el.textContent.trim();
+                        // Parse the target value and format
+                        let target, prefix = '', suffix = '', duration = 1200;
+                        if (text === '48hr') { target = 48; suffix = 'hr'; }
+                        else if (text === '$0') { target = 0; prefix = '$'; }
+                        else if (text === '100%') { target = 100; suffix = '%'; }
+                        else { counterObserver.unobserve(el); return; }
+
+                        let start = 0;
+                        const startTime = performance.now();
+                        function step(now) {
+                            const elapsed = now - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            // Ease out cubic
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = Math.round(start + (target - start) * eased);
+                            el.textContent = prefix + current + suffix;
+                            if (progress < 1) requestAnimationFrame(step);
+                        }
+                        requestAnimationFrame(step);
+                        counterObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            stats.forEach(s => counterObserver.observe(s));
+        }
+        animateCounters();
 
         // ---------------------------------------
         // MOBILE MENU
@@ -1834,13 +2077,15 @@
         // GLASS CARD TILT EFFECT
         // ---------------------------------------
         document.querySelectorAll('.service-card, .portfolio-card').forEach(card => {
+            const isFeatured = card.classList.contains('featured');
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = (e.clientX - rect.left) / rect.width;
                 const y = (e.clientY - rect.top) / rect.height;
                 const tiltX = (y - 0.5) * 6;
                 const tiltY = (x - 0.5) * -6;
-                card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-4px)`;
+                const base = isFeatured ? 'scale(1.06) ' : '';
+                card.style.transform = `${base}perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-4px)`;
                 card.style.backgroundImage = `
                     radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(255,255,255,0.08) 0%, transparent 50%),
                     linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 40%, rgba(100,255,218,0.02) 60%, rgba(255,255,255,0.05) 100%)
