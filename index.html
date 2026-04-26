@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1481,7 +1481,7 @@
 
                 <div class="hero-stats hero-animate">
                     <div class="hero-stat">
-                        <h3>48hr</h3>
+                        <h3>24hr</h3>
                         <p>Average turnaround</p>
                     </div>
                     <div class="hero-stat">
@@ -2009,7 +2009,7 @@
                         const text = el.textContent.trim();
                         // Parse the target value and format
                         let target, prefix = '', suffix = '', duration = 1200;
-                        if (text === '48hr') { target = 48; suffix = 'hr'; }
+                        if (text === '24hr') { target = 48; suffix = 'hr'; }
                         else if (text === '$0') { target = 0; prefix = '$'; }
                         else if (text === '100%') { target = 100; suffix = '%'; }
                         else { counterObserver.unobserve(el); return; }
