@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Chinook Web Design — Calgary Web Design $500 to $2,500</title>
+    <meta name="description" content="Transparent web design pricing for Canadian small businesses. Starter $500, Standard $1,200, Premium $2,500. 14-day money-back guarantee on your v1 mockup.">
+    <meta property="og:title" content="Pricing | Chinook Web Design — $500 to $2,500, no monthly trap">
+    <meta property="og:description" content="Three tiers, transparent pricing, 14-day money-back guarantee on your v1 mockup. Care Plan $99/mo keeps your site fast, secure, and updated.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chinookwebdesign.com/pricing">
+    <meta property="og:image" content="https://chinookwebdesign.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="robots" content="index, follow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pricing | Chinook Web Design — $500 to $2,500">
+    <meta name="twitter:description" content="Transparent web design pricing. Three tiers. 14-day money-back on your v1 mockup. No monthly Wix trap.">
+    <meta name="twitter:image" content="https://chinookwebdesign.com/og-image.png">
+    <link rel="canonical" href="https://chinookwebdesign.com/pricing">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #0a192f;
+            --navy-light: #112240;
+            --navy-lighter: #1a2f4e;
+            --cyan: #64ffda;
+            --cyan-dim: rgba(100,255,218,0.5);
+            --cyan-glow: rgba(100,255,218,0.15);
+            --blue: #00b4d8;
+            --purple: #7b61ff;
+            --slate: #8892b0;
+            --light-slate: #a8b2d1;
+            --lightest-slate: #ccd6f6;
+            --white: #e6f1ff;
+            --glass: rgba(255,255,255,0.06);
+            --glass-hover: rgba(255,255,255,0.1);
+            --glass-border: rgba(255,255,255,0.12);
+            --radius: 20px;
+            --radius-sm: 14px;
+            --radius-xs: 8px;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy);
+            color: var(--slate);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; color: var(--lightest-slate); line-height: 1.2; }
+        a { color: var(--cyan); text-decoration: none; transition: all 0.3s ease; }
+        a:hover { color: var(--white); }
+        img { max-width: 100%; height: auto; }
+
+        /* Aurora background */
+        .aurora { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+        .aurora-blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.5; animation: auroraFloat 20s ease-in-out infinite alternate; }
+        .aurora-blob:nth-child(1) { width: 700px; height: 700px; background: radial-gradient(circle, rgba(100,255,218,0.2), rgba(100,255,218,0.05) 50%, transparent 70%); top: -10%; left: -5%; animation-delay: 0s; }
+        .aurora-blob:nth-child(2) { width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,180,216,0.15), rgba(0,180,216,0.04) 50%, transparent 70%); top: 30%; right: -10%; animation-delay: -5s; animation-duration: 25s; }
+        .aurora-blob:nth-child(3) { width: 500px; height: 500px; background: radial-gradient(circle, rgba(123,97,255,0.12), rgba(123,97,255,0.03) 50%, transparent 70%); bottom: 10%; left: 20%; animation-delay: -10s; animation-duration: 30s; }
+        @keyframes auroraFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+            100% { transform: translate(10px, -10px) scale(1.02); }
+        }
+        .noise {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat; background-size: 256px 256px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1.2rem 2rem;
+            background: linear-gradient(180deg, rgba(10,25,47,0.5) 0%, rgba(10,25,47,0.3) 100%);
+            backdrop-filter: blur(30px) saturate(1.5);
+            -webkit-backdrop-filter: blur(30px) saturate(1.5);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex; justify-content: space-between; align-items: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: inset 0 -1px 0 0 rgba(255,255,255,0.04), 0 4px 30px rgba(0,0,0,0.15);
+        }
+        nav.scrolled {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(180deg, rgba(10,25,47,0.85) 0%, rgba(10,25,47,0.75) 100%);
+            border-bottom-color: rgba(255,255,255,0.1);
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.06), inset 0 -1px 0 0 rgba(255,255,255,0.03), 0 8px 40px rgba(0,0,0,0.3);
+        }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 0.6rem; }
+        .logo-mark { width: 36px; height: 36px; background: linear-gradient(135deg, var(--cyan), var(--blue)); border-radius: 10px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .logo-mark::after { content: ''; position: absolute; inset: 1.5px; background: var(--navy); border-radius: 8.5px; }
+        .logo-mark svg { position: relative; z-index: 1; width: 22px; height: 22px; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .mobile-only-cta { display: none; }
+        .nav-links a { color: var(--light-slate); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.3px; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--cyan); transition: width 0.3s ease; }
+        .nav-links a:hover { color: var(--cyan); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--cyan); }
+        .nav-links a.active::after { width: 100%; }
+        .nav-cta {
+            padding: 0.55rem 1.4rem !important;
+            border: 1px solid rgba(100,255,218,0.4) !important;
+            border-radius: var(--radius-xs);
+            color: var(--cyan) !important;
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            background: linear-gradient(135deg, rgba(100,255,218,0.08), rgba(100,255,218,0.02)) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08) !important;
+        }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover {
+            background: linear-gradient(135deg, rgba(100,255,218,0.15), rgba(100,255,218,0.05)) !important;
+            transform: translateY(-1px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 4px 20px rgba(100,255,218,0.2) !important;
+            border-color: rgba(100,255,218,0.6) !important;
+        }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+        .hamburger span { width: 24px; height: 2px; background: var(--cyan); transition: 0.3s; border-radius: 2px; }
+
+        /* Layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 5rem 0; position: relative; }
+        section:first-of-type { padding-top: 9rem; }
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif; color: var(--cyan);
+            font-size: 0.85rem; font-weight: 600; letter-spacing: 3px;
+            text-transform: uppercase; margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.8rem;
+        }
+        .section-label::before { content: ''; width: 30px; height: 1px; background: var(--cyan); }
+        .section-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.2rem; max-width: 700px; }
+        .section-desc { font-size: 1.05rem; max-width: 600px; line-height: 1.8; margin-bottom: 3rem; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            border: none; border-radius: var(--radius-sm);
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            color: var(--navy);
+            box-shadow: 0 4px 15px rgba(100,255,218,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(100,255,218,0.3), 0 0 60px rgba(100,255,218,0.1), inset 0 1px 0 rgba(255,255,255,0.3);
+            color: var(--navy);
+        }
+        .btn-outline {
+            background: linear-gradient(135deg, rgba(100,255,218,0.06), rgba(100,255,218,0.02));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: var(--cyan);
+            border: 1px solid rgba(100,255,218,0.3);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        }
+        .btn-outline:hover {
+            background: linear-gradient(135deg, rgba(100,255,218,0.12), rgba(100,255,218,0.04));
+            transform: translateY(-2px);
+            color: var(--cyan);
+            border-color: rgba(100,255,218,0.5);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 20px rgba(100,255,218,0.1);
+        }
+
+        /* Pricing hero */
+        .pricing-hero { text-align: center; padding-bottom: 2rem; }
+        .pricing-hero h1 {
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .pricing-hero h1 .highlight {
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 50%, var(--purple) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 6s ease infinite;
+        }
+        @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .pricing-hero .lead {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            color: var(--slate);
+            max-width: 640px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+        .section-label-center { justify-content: center; margin-bottom: 1.2rem; }
+
+        /* Guarantee badge banner */
+        .guarantee-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.55rem 1.2rem 0.55rem 0.7rem;
+            background: linear-gradient(135deg, rgba(100,255,218,0.12), rgba(0,180,216,0.06));
+            backdrop-filter: blur(20px) saturate(1.3);
+            -webkit-backdrop-filter: blur(20px) saturate(1.3);
+            border: 1px solid rgba(100,255,218,0.3);
+            border-radius: 50px;
+            color: var(--white);
+            font-size: 0.88rem;
+            font-weight: 500;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 20px rgba(100,255,218,0.1);
+            margin-bottom: 2rem;
+        }
+        .guarantee-banner .shield-icon {
+            width: 24px; height: 24px;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+        .guarantee-banner .shield-icon svg { width: 14px; height: 14px; stroke: var(--navy); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .guarantee-banner strong { color: var(--cyan); font-weight: 700; }
+
+        /* Pricing tier grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            align-items: stretch;
+        }
+        .tier-card {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 40%, rgba(100,255,218,0.02) 60%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(28px) saturate(1.4);
+            -webkit-backdrop-filter: blur(28px) saturate(1.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1), inset 0 -1px 0 0 rgba(255,255,255,0.03), 0 8px 32px rgba(0,0,0,0.2), 0 0 0 0.5px rgba(255,255,255,0.06);
+        }
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), rgba(100,255,218,0.3), rgba(255,255,255,0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .tier-card:hover {
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-8px);
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.15), inset 0 -1px 0 0 rgba(255,255,255,0.05), 0 20px 60px rgba(0,0,0,0.35), 0 0 60px rgba(100,255,218,0.06), 0 0 0 0.5px rgba(255,255,255,0.1);
+        }
+        .tier-card:hover::before { opacity: 1; }
+        .tier-card.featured {
+            border-color: rgba(100,255,218,0.25);
+            transform: scale(1.04);
+            z-index: 2;
+            background: linear-gradient(135deg, rgba(100,255,218,0.06) 0%, rgba(255,255,255,0.03) 50%, rgba(100,255,218,0.04) 100%);
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.14), inset 0 -1px 0 0 rgba(255,255,255,0.04), 0 0 0 1px rgba(100,255,218,0.18), 0 0 50px rgba(100,255,218,0.1), 0 0 100px rgba(100,255,218,0.05), 0 12px 40px rgba(0,0,0,0.25);
+        }
+        .tier-card.featured:hover { transform: scale(1.06); }
+        .tier-card.featured::before { opacity: 1; }
+        .popular-badge {
+            position: absolute;
+            top: 1.2rem; right: 1.2rem;
+            padding: 0.25rem 0.8rem;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            color: var(--navy);
+            font-size: 0.72rem;
+            font-weight: 700;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 12px rgba(100,255,218,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            z-index: 3;
+        }
+        .tier-name {
+            font-size: 1.15rem;
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .tier-tagline {
+            font-size: 0.95rem;
+            color: var(--light-slate);
+            margin-bottom: 1.4rem;
+            line-height: 1.6;
+            min-height: 3.4em;
+        }
+        .tier-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+        .tier-price .amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        .tier-card.featured .tier-price .amount {
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .tier-price .currency {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--slate);
+            font-weight: 500;
+        }
+        .tier-price .one-time {
+            font-size: 0.78rem;
+            color: var(--slate);
+            margin-left: 0.4rem;
+        }
+        .tier-deliverable {
+            font-size: 0.85rem;
+            color: var(--slate);
+            margin-bottom: 1.6rem;
+            padding-bottom: 1.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .tier-features { list-style: none; padding: 0; margin: 0 0 1.5rem 0; flex-grow: 1; }
+        .tier-features li {
+            font-size: 0.9rem;
+            color: var(--light-slate);
+            padding: 0.45rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            line-height: 1.55;
+        }
+        .tier-features li::before {
+            content: '';
+            width: 16px; height: 16px;
+            background: linear-gradient(135deg, rgba(100,255,218,0.18), rgba(100,255,218,0.06));
+            border: 1px solid rgba(100,255,218,0.3);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 3px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364ffda' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 11px 11px;
+        }
+        .tier-cta-block {
+            margin-top: auto;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .tier-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            width: 100%;
+            padding: 0.85rem 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            border-radius: var(--radius-xs);
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 1px solid rgba(100,255,218,0.25);
+            color: var(--cyan);
+            background: linear-gradient(135deg, rgba(100,255,218,0.06), rgba(100,255,218,0.02));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .tier-cta:hover {
+            background: linear-gradient(135deg, rgba(100,255,218,0.12), rgba(100,255,218,0.05));
+            border-color: rgba(100,255,218,0.45);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(100,255,218,0.15);
+            color: var(--cyan);
+        }
+        .tier-cta svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.3s ease; }
+        .tier-cta:hover svg { transform: translateX(3px); }
+        .tier-card.featured .tier-cta {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            color: var(--navy);
+            border: none;
+            box-shadow: 0 4px 15px rgba(100,255,218,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .tier-card.featured .tier-cta:hover {
+            box-shadow: 0 8px 30px rgba(100,255,218,0.3), 0 0 40px rgba(100,255,218,0.1);
+            color: var(--navy);
+        }
+        .tier-card.featured .tier-cta svg { stroke: var(--navy); }
+
+        /* Per-tier guarantee chip */
+        .tier-guarantee {
+            margin-top: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--light-slate);
+            line-height: 1.4;
+        }
+        .tier-guarantee .chip-dot {
+            width: 6px; height: 6px;
+            background: var(--cyan);
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 8px rgba(100,255,218,0.6);
+        }
+        .tier-guarantee em { font-style: normal; color: var(--cyan); font-weight: 600; }
+
+        /* Care Plan upsell */
+        .care-plan-block {
+            margin: 0 auto 4rem;
+            max-width: 880px;
+            background: linear-gradient(145deg, rgba(123,97,255,0.08) 0%, rgba(255,255,255,0.04) 50%, rgba(100,255,218,0.06) 100%);
+            backdrop-filter: blur(28px) saturate(1.4);
+            -webkit-backdrop-filter: blur(28px) saturate(1.4);
+            border: 1px solid rgba(123,97,255,0.2);
+            border-radius: var(--radius);
+            padding: 2.5rem 2.25rem;
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.1), 0 12px 40px rgba(0,0,0,0.25), 0 0 60px rgba(123,97,255,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        .care-plan-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(123,97,255,0.3), rgba(100,255,218,0.4), rgba(123,97,255,0.3), transparent);
+        }
+        .care-plan-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .care-plan-header h2 {
+            font-size: 1.6rem;
+            color: var(--white);
+            margin: 0;
+        }
+        .care-plan-header .add-on-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, rgba(100,255,218,0.15), rgba(0,180,216,0.08));
+            border: 1px solid rgba(100,255,218,0.25);
+            border-radius: 50px;
+            color: var(--cyan);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .care-plan-checkbox-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(100,255,218,0.18);
+            border-radius: var(--radius-sm);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .care-plan-checkbox-row:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(100,255,218,0.3);
+        }
+        .care-plan-checkbox {
+            position: relative;
+            width: 22px; height: 22px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .care-plan-checkbox input {
+            opacity: 0;
+            width: 100%; height: 100%;
+            position: absolute;
+            cursor: pointer;
+            margin: 0;
+        }
+        .care-plan-checkbox .checkmark {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 8px rgba(100,255,218,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .care-plan-checkbox .checkmark::after {
+            content: '';
+            width: 6px; height: 11px;
+            border-right: 2px solid var(--navy);
+            border-bottom: 2px solid var(--navy);
+            transform: rotate(45deg) translateY(-1px);
+            transition: opacity 0.2s ease;
+        }
+        .care-plan-checkbox input:not(:checked) ~ .checkmark {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(100,255,218,0.3);
+            box-shadow: none;
+        }
+        .care-plan-checkbox input:not(:checked) ~ .checkmark::after { opacity: 0; }
+        .care-plan-checkbox-text {
+            flex-grow: 1;
+        }
+        .care-plan-checkbox-text .label {
+            font-size: 1rem;
+            color: var(--white);
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+        .care-plan-checkbox-text .price-line {
+            color: var(--cyan);
+            font-weight: 700;
+        }
+        .care-plan-checkbox-text .small {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--slate);
+            line-height: 1.5;
+        }
+        .care-plan-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.6rem 1.2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .care-plan-features li {
+            font-size: 0.88rem;
+            color: var(--light-slate);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            line-height: 1.5;
+        }
+        .care-plan-features li::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--cyan);
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 0 6px rgba(100,255,218,0.5);
+        }
+
+        /* Comparison table */
+        .compare-section { padding-bottom: 3rem; }
+        .compare-table-wrap {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .compare-scroll { overflow-x: auto; }
+        .compare-table {
+            width: 100%;
+            min-width: 720px;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+        .compare-table th, .compare-table td {
+            padding: 1.05rem 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .compare-table thead th {
+            background: rgba(100,255,218,0.04);
+            color: var(--white);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(100,255,218,0.18);
+        }
+        .compare-table thead th:first-child {
+            color: var(--slate);
+            text-transform: none;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0;
+        }
+        .compare-table thead th.featured-col {
+            background: linear-gradient(180deg, rgba(100,255,218,0.12), rgba(100,255,218,0.04));
+            color: var(--cyan);
+        }
+        .compare-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+        .compare-table td:first-child {
+            color: var(--light-slate);
+            font-weight: 500;
+        }
+        .compare-table td.cell-yes {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+        .compare-table td.cell-no {
+            color: var(--slate);
+            opacity: 0.5;
+        }
+        .compare-table td.cell-value {
+            color: var(--white);
+        }
+        .compare-table tfoot td {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--white);
+            border-bottom: none;
+            padding-top: 1.4rem;
+            padding-bottom: 1.4rem;
+        }
+        .compare-table tfoot td.featured-col { color: var(--cyan); }
+        .check-icon { display: inline-flex; align-items: center; gap: 0.4rem; }
+        .check-icon svg { width: 16px; height: 16px; stroke: var(--cyan); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .x-icon { display: inline-flex; align-items: center; gap: 0.4rem; }
+        .x-icon svg { width: 14px; height: 14px; stroke: var(--slate); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+
+        /* Bounded guarantee explainer block */
+        .guarantee-explainer {
+            background: linear-gradient(145deg, rgba(100,255,218,0.06) 0%, rgba(255,255,255,0.02) 50%, rgba(0,180,216,0.04) 100%);
+            backdrop-filter: blur(24px) saturate(1.3);
+            -webkit-backdrop-filter: blur(24px) saturate(1.3);
+            border: 1px solid rgba(100,255,218,0.18);
+            border-radius: var(--radius);
+            padding: 2.25rem 2rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .guarantee-explainer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(100,255,218,0.4), transparent);
+        }
+        .guarantee-explainer h3 {
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .guarantee-explainer h3 svg {
+            width: 22px; height: 22px;
+            stroke: var(--cyan);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+        .guarantee-explainer p {
+            color: var(--light-slate);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+        .guarantee-explainer p:last-child { margin-bottom: 0; }
+        .guarantee-explainer strong { color: var(--cyan); font-weight: 600; }
+
+        /* Anti-customer filter */
+        .anti-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        .anti-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.04) 100%);
+            backdrop-filter: blur(24px) saturate(1.2);
+            -webkit-backdrop-filter: blur(24px) saturate(1.2);
+            border: 1px dashed rgba(255,255,255,0.18);
+            border-radius: var(--radius);
+            padding: 2.5rem 2.25rem;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 30px rgba(0,0,0,0.18);
+        }
+        .anti-card h2 {
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+        }
+        .anti-card .lead-out {
+            color: var(--light-slate);
+            margin-bottom: 1.75rem;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+        .anti-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+        }
+        .anti-list li {
+            padding: 1rem 1.2rem 1rem 2.6rem;
+            background: rgba(255,255,255,0.03);
+            border-left: 2px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius-xs);
+            color: var(--light-slate);
+            font-size: 0.94rem;
+            line-height: 1.65;
+            position: relative;
+            transition: all 0.25s ease;
+        }
+        .anti-list li::before {
+            content: '';
+            position: absolute;
+            left: 0.9rem;
+            top: 1.05rem;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.18);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238892b0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 9px 9px;
+        }
+        .anti-list li:hover {
+            background: rgba(255,255,255,0.05);
+            border-left-color: rgba(100,255,218,0.4);
+            transform: translateX(2px);
+        }
+        .anti-list li strong { color: var(--white); font-weight: 600; }
+        .anti-list li em { font-style: normal; color: var(--cyan); font-weight: 500; }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+        }
+        .bottom-cta-glow {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 400px;
+            background: radial-gradient(ellipse, rgba(100,255,218,0.08), rgba(0,180,216,0.03) 50%, transparent 70%);
+            pointer-events: none;
+            filter: blur(40px);
+        }
+        .bottom-cta h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .bottom-cta p { font-size: 1.05rem; max-width: 480px; margin: 0 auto 2rem; position: relative; }
+        .bottom-cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+        .bottom-cta-buttons svg { width: 18px; height: 18px; stroke: var(--navy); fill: none; stroke-width: 2; }
+
+        /* Section divider */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(100,255,218,0.12) 20%, rgba(0,180,216,0.1) 50%, rgba(123,97,255,0.08) 80%, transparent);
+        }
+
+        /* Scroll progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0; left: 0;
+            width: 0%; height: 3px;
+            background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple));
+            z-index: 1001;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(100,255,218,0.4);
+        }
+
+        /* Footer */
+        footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+        .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--slate); font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--cyan); }
+        .footer-copy { color: var(--slate); font-size: 0.8rem; }
+        .footer-social { display: flex; gap: 1rem; }
+        .footer-social a {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        }
+        .footer-social a:hover {
+            border-color: rgba(100,255,218,0.3);
+            background: linear-gradient(135deg, rgba(100,255,218,0.1), rgba(100,255,218,0.04));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 0 15px rgba(100,255,218,0.08);
+        }
+        .footer-social a svg { width: 16px; height: 16px; stroke: var(--slate); fill: none; stroke-width: 2; }
+        .footer-social a:hover svg { stroke: var(--cyan); }
+
+        /* Reveal animations */
+        .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.94); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform; }
+        .reveal-scale.visible { opacity: 1; transform: scale(1); }
+        .reveal-scale.featured { transform: scale(0.94); }
+        .reveal-scale.featured.visible { transform: scale(1.04); }
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+        .reveal-delay-4 { transition-delay: 0.32s; }
+        .reveal-delay-5 { transition-delay: 0.40s; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .pricing-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+            .tier-card.featured { transform: scale(1); }
+            .tier-card.featured:hover { transform: translateY(-8px); }
+            .reveal-scale.featured.visible { transform: scale(1); }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-only-cta { display: inline-flex !important; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; left: 0; width: 100%;
+                background: rgba(10,25,47,0.97);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                gap: 1.2rem;
+                border-bottom: 1px solid var(--glass-border);
+            }
+            .nav-links.open a::after { display: none; }
+            .container { padding: 0 1.25rem; }
+            section { padding: 4rem 0; }
+            section:first-of-type { padding-top: 7rem; }
+            .care-plan-block { padding: 1.75rem 1.4rem; }
+            .care-plan-checkbox-row { flex-direction: column; gap: 0.75rem; padding: 1.1rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+            .anti-card { padding: 2rem 1.5rem; }
+            .guarantee-explainer { padding: 1.75rem 1.5rem; }
+            .compare-table { font-size: 0.85rem; }
+            .compare-table th, .compare-table td { padding: 0.85rem 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .bottom-cta-buttons { flex-direction: column; align-items: center; }
+            .bottom-cta-buttons .btn { width: 100%; max-width: 300px; }
+            .tier-price .amount { font-size: 2.4rem; }
+            .pricing-hero h1 { font-size: clamp(2rem, 7vw, 2.6rem); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal, .reveal-scale { opacity: 1 !important; transform: none !important; transition: none !important; }
+        }
+    </style>
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Chinook Web Design",
+        "description": "Professional web design starting at $500. Custom, mobile-ready websites for Canadian small businesses. 14-day money-back guarantee on your v1 mockup.",
+        "url": "https://chinookwebdesign.com",
+        "telephone": "+15874024794",
+        "email": "isaac@chinookwebdesign.com",
+        "image": "https://chinookwebdesign.com/og-image.png",
+        "logo": "https://chinookwebdesign.com/favicon.svg",
+        "founder": {
+          "@type": "Person",
+          "name": "Isaac Dobson"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Calgary",
+          "addressRegion": "AB",
+          "addressCountry": "CA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.0447,
+          "longitude": -114.0719
+        },
+        "priceRange": "$500 - $2,500",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Canada"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://chinookwebdesign.com" },
+          { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://chinookwebdesign.com/pricing" }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Chinook Web Design — Custom Small Business Website",
+        "description": "Custom websites for Canadian small businesses. Built in 14 days, owned outright, with a 14-day money-back guarantee on your v1 mockup.",
+        "brand": { "@type": "Brand", "name": "Chinook Web Design" },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "CAD",
+          "lowPrice": "500",
+          "highPrice": "2500",
+          "offerCount": "3",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    ]
+    </script>
+</head>
+<body>
+    <noscript>
+      <style>
+        .reveal, .reveal-scale { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
+
+    <!-- Aurora background -->
+    <div class="aurora">
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+    </div>
+    <div class="noise"></div>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="/" class="logo">
+            <div class="logo-mark">
+                <svg viewBox="0 0 60 60" fill="none">
+                    <defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#64ffda"/><stop offset="100%" stop-color="#00b4d8"/></linearGradient></defs>
+                    <path d="M39 14 C50 11, 54 18, 52 30 C50 42, 42 50, 32 47" stroke="url(#logoGrad)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                    <path d="M18 44 L27 28 L36 44" stroke="#64ffda" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+                    <path d="M42 22 Q52 19, 56 23" stroke="#64ffda" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.45"/>
+                    <path d="M44 32 Q53 30, 57 33" stroke="#00b4d8" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.3"/>
+                </svg>
+            </div>
+            Chinook
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="/#services">Services</a>
+            <a href="/#work">Work</a>
+            <a href="/pricing" class="active">Pricing</a>
+            <a href="/#about">About</a>
+            <a href="/#blog">Blog</a>
+            <a href="/#contact" class="nav-cta">Free Demo</a>
+        </div>
+        <a href="/#contact" class="nav-cta mobile-only-cta">Free Demo</a>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <p class="section-label section-label-center reveal">Pricing</p>
+            <h1 class="reveal">Three tiers. <span class="highlight">Transparent prices.</span><br>No monthly trap.</h1>
+            <p class="lead reveal reveal-delay-1">
+                I build custom websites for Canadian small businesses — $500 to $2,500, done in
+                about 14 days, you own the site outright. Pick the tier that fits, and lock it in
+                with a 14-day money-back guarantee on your v1 mockup.
+            </p>
+            <div class="reveal reveal-delay-2">
+                <span class="guarantee-banner">
+                    <span class="shield-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    </span>
+                    <span><strong>14-day money-back</strong> if you're not happy with your v1 mockup.</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing tiers -->
+    <section style="padding-top: 1rem;">
+        <div class="container">
+            <div class="pricing-grid">
+
+                <!-- STARTER -->
+                <article class="tier-card reveal-scale">
+                    <div class="tier-name">Starter</div>
+                    <p class="tier-tagline">A clean single-page site that puts you on the map and starts the calls.</p>
+                    <div class="tier-price">
+                        <span class="amount">$500</span>
+                        <span class="currency">CAD</span>
+                        <span class="one-time">one-time</span>
+                    </div>
+                    <p class="tier-deliverable">Single-page site, mobile-ready, live in about 7 days.</p>
+
+                    <ul class="tier-features">
+                        <li>Custom single-page website</li>
+                        <li>Mobile + desktop responsive</li>
+                        <li>1 round of revisions</li>
+                        <li>Hosting setup &amp; SSL</li>
+                        <li>Contact form to your inbox</li>
+                        <li>Click-to-call &amp; basic SEO</li>
+                    </ul>
+
+                    <div class="tier-cta-block">
+                        <a href="/#contact" class="tier-cta">
+                            Start with Starter
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="tier-guarantee">
+                            <span class="chip-dot"></span>
+                            <span><em>14-day money-back</em> on your v1 mockup. Refund window closes once you approve v1.</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- STANDARD (FEATURED) -->
+                <article class="tier-card featured reveal-scale featured reveal-delay-2">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="tier-name">Standard</div>
+                    <p class="tier-tagline">Multi-page custom site with the design polish that wins trust and books work.</p>
+                    <div class="tier-price">
+                        <span class="amount">$1,200</span>
+                        <span class="currency">CAD</span>
+                        <span class="one-time">one-time</span>
+                    </div>
+                    <p class="tier-deliverable">3-5 pages, custom design, live in about 14 days.</p>
+
+                    <ul class="tier-features">
+                        <li>Everything in Starter</li>
+                        <li>3 to 5 pages, fully custom design</li>
+                        <li>2 rounds of revisions</li>
+                        <li>Google Business Profile setup</li>
+                        <li>Basic SEO (titles, meta, schema)</li>
+                        <li>Gallery, services, testimonials</li>
+                    </ul>
+
+                    <div class="tier-cta-block">
+                        <a href="/#contact" class="tier-cta">
+                            Get Free Demo
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="tier-guarantee">
+                            <span class="chip-dot"></span>
+                            <span><em>14-day money-back</em> on your v1 mockup. Refund window closes once you approve v1.</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- PREMIUM -->
+                <article class="tier-card reveal-scale reveal-delay-3">
+                    <div class="tier-name">Premium</div>
+                    <p class="tier-tagline">Bespoke design, booking or e-commerce, advanced SEO, and 30-day post-launch support.</p>
+                    <div class="tier-price">
+                        <span class="amount">$2,500</span>
+                        <span class="currency">CAD</span>
+                        <span class="one-time">one-time</span>
+                    </div>
+                    <p class="tier-deliverable">Up to 10 pages, advanced design, live in about 21 days.</p>
+
+                    <ul class="tier-features">
+                        <li>Everything in Standard</li>
+                        <li>Advanced custom design &amp; animations</li>
+                        <li>4 rounds of revisions</li>
+                        <li>E-commerce or booking integration</li>
+                        <li>Advanced SEO &amp; speed optimization</li>
+                        <li>30-day post-launch support</li>
+                    </ul>
+
+                    <div class="tier-cta-block">
+                        <a href="/#contact" class="tier-cta">
+                            Build Premium
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="tier-guarantee">
+                            <span class="chip-dot"></span>
+                            <span><em>14-day money-back</em> on your v1 mockup. Refund window closes once you approve v1.</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Care Plan upsell -->
+            <div class="care-plan-block reveal">
+                <div class="care-plan-header">
+                    <h2>Chinook Care Plan</h2>
+                    <span class="add-on-tag">Recurring · pre-selected at checkout</span>
+                </div>
+
+                <div class="care-plan-checkbox-row">
+                    <label class="care-plan-checkbox">
+                        <input type="checkbox" id="carePlanCheckbox" checked aria-label="Add Chinook Care Plan to checkout">
+                        <span class="checkmark" aria-hidden="true"></span>
+                    </label>
+                    <div class="care-plan-checkbox-text">
+                        <span class="label">
+                            Add Chinook Care Plan — <span class="price-line">$99/mo</span> <span style="color: var(--slate); font-weight: 400; font-size: 0.85rem;">(cancel anytime)</span>
+                        </span>
+                        <span class="small">First month free. You won't be charged until day 31. Cancel by day 30 to avoid the charge.</span>
+                    </div>
+                </div>
+
+                <ul class="care-plan-features">
+                    <li>Monthly content updates</li>
+                    <li>Weekly automated backups</li>
+                    <li>Security monitoring &amp; patching</li>
+                    <li>Hosting on fast, modern infrastructure</li>
+                    <li>SSL renewal &amp; uptime alerts</li>
+                    <li>1 priority support call per month</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison table -->
+    <section class="compare-section">
+        <div class="container">
+            <div class="reveal" style="margin-bottom: 2rem;">
+                <p class="section-label">Compare</p>
+                <h2 class="section-title" style="font-size: clamp(1.7rem, 3vw, 2.2rem);">Side-by-side, what you get.</h2>
+            </div>
+
+            <div class="compare-table-wrap reveal reveal-delay-1">
+                <div class="compare-scroll">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Starter</th>
+                                <th class="featured-col">Standard</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pages</td>
+                                <td class="cell-value">Single page</td>
+                                <td class="cell-value featured-col">3 - 5 pages</td>
+                                <td class="cell-value">Up to 10 pages</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile + desktop responsive</td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes featured-col"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                            </tr>
+                            <tr>
+                                <td>Rounds of revisions</td>
+                                <td class="cell-value">1</td>
+                                <td class="cell-value featured-col">2</td>
+                                <td class="cell-value">4</td>
+                            </tr>
+                            <tr>
+                                <td>Hosting setup &amp; SSL</td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes featured-col"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                            </tr>
+                            <tr>
+                                <td>Contact form</td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes featured-col"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                            </tr>
+                            <tr>
+                                <td>Custom design</td>
+                                <td class="cell-value">Template-derived</td>
+                                <td class="cell-value featured-col">Custom from scratch</td>
+                                <td class="cell-value">Bespoke + animations</td>
+                            </tr>
+                            <tr>
+                                <td>Google Business Profile setup</td>
+                                <td class="cell-no"><span class="x-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>—</span></td>
+                                <td class="cell-yes featured-col"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                            </tr>
+                            <tr>
+                                <td>SEO</td>
+                                <td class="cell-value">Basic (titles, meta)</td>
+                                <td class="cell-value featured-col">Basic + schema</td>
+                                <td class="cell-value">Advanced + speed</td>
+                            </tr>
+                            <tr>
+                                <td>E-commerce or booking</td>
+                                <td class="cell-no"><span class="x-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>—</span></td>
+                                <td class="cell-no featured-col"><span class="x-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>—</span></td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes (one of)</span></td>
+                            </tr>
+                            <tr>
+                                <td>Post-launch support</td>
+                                <td class="cell-value">Bug-fix only</td>
+                                <td class="cell-value featured-col">Bug-fix only</td>
+                                <td class="cell-value">30 days</td>
+                            </tr>
+                            <tr>
+                                <td>Estimated turnaround</td>
+                                <td class="cell-value">~7 days</td>
+                                <td class="cell-value featured-col">~14 days</td>
+                                <td class="cell-value">~21 days</td>
+                            </tr>
+                            <tr>
+                                <td>14-day money-back on v1 mockup</td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes featured-col"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                                <td class="cell-yes"><span class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Price</td>
+                                <td>$500</td>
+                                <td class="featured-col">$1,200</td>
+                                <td>$2,500</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bounded guarantee explainer -->
+    <section style="padding-top: 0; padding-bottom: 4rem;">
+        <div class="container">
+            <div class="guarantee-explainer reveal">
+                <h3>
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    Why bounded? Because fair to both sides.
+                </h3>
+                <p>
+                    My <strong>14-day money-back</strong> covers the design phase. If you don't love
+                    your v1 mockup, you get every dollar back — no questions, no clawback fights.
+                </p>
+                <p>
+                    Once you approve v1 and I move into the build phase, the refund window closes.
+                    That's the rule that keeps it sustainable: <strong>risk-free for you during design,
+                    fair to me during build</strong>. You've already gotten the design value, and the
+                    build hours are real hours I won't get back.
+                </p>
+                <p style="font-size: 0.88rem; color: var(--slate);">
+                    Approval of v1 = written sign-off via email or proposal e-sign. After that we're partners on shipping, not on rewinding.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Anti-customer filter -->
+    <section class="anti-section">
+        <div class="container">
+            <div class="anti-card reveal">
+                <p class="section-label">Honest filter</p>
+                <h2>This isn't for everyone — and that's the point.</h2>
+                <p class="lead-out">
+                    I do my best work for a specific kind of client. If you see yourself below, I'm probably not the right fit, and I'll happily point you somewhere better.
+                </p>
+
+                <ul class="anti-list">
+                    <li><strong>Looking for the cheapest possible site?</strong> <em>Wix or Squarespace beat me on price</em> — start there.</li>
+                    <li><strong>Need a 200-page enterprise build?</strong> <em>You need an agency, not me</em> — I'll refer you out.</li>
+                    <li><strong>Want unlimited revisions for $500?</strong> <em>Won't happen</em> — that's how I'd burn out and underdeliver on you and the next ten clients.</li>
+                    <li><strong>Already have ads driving traffic and just need a redesign?</strong> <em>I focus on businesses that don't have a real website yet</em> — there are CRO-focused designers who'll serve you better.</li>
+                    <li><strong>Need a committee of five to approve every change?</strong> <em>I work best with the decision-maker on the call</em> — solo owners and small teams.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+        <div class="bottom-cta-glow"></div>
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label section-label-center">Ready when you are</p>
+                <h2>Pick a tier. I'll build you a free demo first.</h2>
+                <p>
+                    No pitch decks, no contracts before you've seen the work. I'll put together a working v1 mockup
+                    of your site for free — if you love it, we talk pricing.
+                </p>
+            </div>
+            <div class="bottom-cta-buttons reveal reveal-delay-1">
+                <a href="tel:5874024794" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    (587) 402-4794
+                </a>
+                <a href="https://calendly.com/chinookwebdesign" class="btn btn-outline">Book a Call</a>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--slate); position: relative;">
+                Demos are free. Refunds during the design window are honored, no questions asked.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <a href="/" class="logo" style="font-size: 1.1rem;">
+                    <div class="logo-mark" style="width: 30px; height: 30px;">
+                        <svg viewBox="0 0 60 60" fill="none" style="width: 14px; height: 14px;">
+                            <defs><linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#64ffda"/><stop offset="100%" stop-color="#00b4d8"/></linearGradient></defs>
+                            <path d="M39 14 C50 11, 54 18, 52 30 C50 42, 42 50, 32 47" stroke="url(#footerLogoGrad)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                            <path d="M18 44 L27 28 L36 44" stroke="#64ffda" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+                            <path d="M42 22 Q52 19, 56 23" stroke="#64ffda" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.45"/>
+                        </svg>
+                    </div>
+                    Chinook
+                </a>
+                <div class="footer-links">
+                    <a href="/#services">Services</a>
+                    <a href="/#work">Work</a>
+                    <a href="/pricing">Pricing</a>
+                    <a href="/#about">About</a>
+                    <a href="/#blog">Blog</a>
+                    <a href="/#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com/chinookwebdesign" aria-label="Facebook" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/chinookwebdesign" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+                    </a>
+                </div>
+                <p class="footer-copy">&copy; 2026 Chinook Web Design. Calgary-based, Canada-wide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ------------------------------------
+        // SCROLL REVEAL ANIMATIONS
+        // ------------------------------------
+        function initAnimations() {
+            // Safety: reveal everything after 3s no matter what
+            setTimeout(function() {
+                document.querySelectorAll('.reveal, .reveal-scale').forEach(function(el) {
+                    el.classList.add('visible');
+                });
+            }, 3000);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.reveal, .reveal-scale').forEach(el => observer.observe(el));
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAnimations);
+        } else {
+            initAnimations();
+        }
+
+        // ------------------------------------
+        // NAVBAR SCROLL + PROGRESS BAR
+        // ------------------------------------
+        const navbar = document.getElementById('navbar');
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (currentScroll / docHeight) * 100 : 0;
+            scrollProgress.style.width = progress + '%';
+        }, { passive: true });
+
+        // ------------------------------------
+        // MOBILE MENU
+        // ------------------------------------
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const spans = hamburger.querySelectorAll('span');
+            if (navLinks.classList.contains('open')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
+        });
+
+        // ------------------------------------
+        // CARE PLAN CHECKOUT INTENT
+        // Care Plan Stripe price ID is wired post-deploy by Isaac.
+        // Placeholder env var: STRIPE_CARE_PLAN_PRICE_ID
+        // When checkbox is toggled, store user intent for the
+        // checkout/contact flow to read on submission.
+        // ------------------------------------
+        const carePlanCheckbox = document.getElementById('carePlanCheckbox');
+        if (carePlanCheckbox) {
+            // Pre-selected by default in HTML, but persist any explicit toggle
+            try {
+                const stored = sessionStorage.getItem('chinook_care_plan_optin');
+                if (stored !== null) {
+                    carePlanCheckbox.checked = stored === 'true';
+                }
+            } catch (e) { /* sessionStorage unavailable, ignore */ }
+
+            carePlanCheckbox.addEventListener('change', () => {
+                try {
+                    sessionStorage.setItem('chinook_care_plan_optin', carePlanCheckbox.checked ? 'true' : 'false');
+                } catch (e) { /* ignore */ }
+                // Future: when the checkout endpoint exists, append
+                // STRIPE_CARE_PLAN_PRICE_ID as a line item if true.
+            });
+        }
+    </script>
+</body>
+</html>

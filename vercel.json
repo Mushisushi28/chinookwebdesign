@@ -1,4 +1,6 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "routes": [
     {
       "handle": "filesystem"
@@ -6,6 +8,10 @@
     {
       "src": "/api/(.*)",
       "dest": "/api/$1"
+    },
+    {
+      "src": "/pricing/?",
+      "dest": "/pricing.html"
     },
     {
       "src": "/(.*)",
